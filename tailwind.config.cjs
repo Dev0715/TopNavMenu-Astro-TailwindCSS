@@ -11,6 +11,12 @@ module.exports = {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        myellow: {
+          100: '#FCFFC7',
+          300: '#E9FF48',
+          900: '#48590E',
+          950: '#263201',
+        },
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],

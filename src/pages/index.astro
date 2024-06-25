@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+// import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -13,7 +13,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Markular',
   ignoreTitleTemplate: true,
 };
 ---
@@ -22,37 +22,37 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    actions={[{ variant: 'primary', text: 'Learn More', href: '#features', icon: '' }]}
+    image={{ src: '~/assets/images/hero-office.png', alt: 'People in a meeting room' }}
   >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
-    </Fragment>
+    <Fragment slot="title" class="text-left"> Optimize your Business with Markular's Solutions </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      Markular is a premier SaaS company that offers cutting-edge software solutions tailored for medium to large
+      enterprises. Our platform optimizes team composition and productivity, while providing comprehensive HR tools for
+      recruitment and performance management.
+    </Fragment>
+  </Hero>
+
+  <Hero
+    actions={[
+      { variant: 'secondary', text: 'Learn More', href: '#features', icon: '' },
+      { variant: 'link', text: 'Sign Up', href: '#features', icon: 'tabler:chevron-right' },
+    ]}
+    image={{ src: '~/assets/images/office-guy.png', alt: 'Person in office smiling' }}
+  >
+    <Fragment slot="title" class="text-left"> Optimize your Business with Markular's Solutions </Fragment>
+
+    <Fragment slot="subtitle">
+      Markular is a premier SaaS company that offers cutting-edge software solutions tailored for medium to large
+      enterprises. Our platform optimizes team composition and productivity, while providing comprehensive HR tools for
+      recruitment and performance management.
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note />
+  <!-- <Note /> -->
 
   <!-- Features Widget *************** -->
 

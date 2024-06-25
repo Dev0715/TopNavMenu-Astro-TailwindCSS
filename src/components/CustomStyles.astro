@@ -1,5 +1,6 @@
 ---
-import '@fontsource-variable/inter';
+import '@fontsource/fira-mono';
+import '@fontsource-variable/outfit';
 
 // 'DM Sans'
 // Nunito
@@ -21,20 +22,20 @@ import '@fontsource-variable/inter';
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'InterVariable';
-    --aw-font-serif: 'InterVariable';
-    --aw-font-heading: 'InterVariable';
+    --aw-font-sans: 'Fira Mono';
+    --aw-font-serif: 'Fira Mono';
+    --aw-font-heading: 'Outfit';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-primary: #263201;
+    --aw-color-secondary: #e9ff48;
     --aw-color-accent: rgb(109 40 217);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-heading: var(--aw-color-primary);
+    --aw-color-text-default: var(--aw-color-primary);
     --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-bg-page: rgba(255, 255, 255, 0.9);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: white;
 
     ::selection {
       background-color: lavender;
@@ -42,9 +43,9 @@ import '@fontsource-variable/inter';
   }
 
   .dark {
-    --aw-font-sans: 'InterVariable';
-    --aw-font-serif: 'InterVariable';
-    --aw-font-heading: 'InterVariable';
+    --aw-font-sans: 'Fira Mono';
+    --aw-font-serif: 'Fira Mono';
+    --aw-font-heading: 'Outfit';
 
     --aw-color-primary: rgb(1 97 239);
     --aw-color-secondary: rgb(1 84 207);
