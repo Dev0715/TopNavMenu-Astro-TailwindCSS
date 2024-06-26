@@ -25,7 +25,7 @@ const {
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  <div class="relative max-w-7xl mx-auto px-[1.25rem] bg-gradient-to-br from-myellow-300 to-myellow-100">
+  <div class="relative max-w-full mx-auto px-[1.25rem] bg-gradient-to-br from-myellow-300 to-myellow-100">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
       <div class="text-start pb-10 md:pb-16 max-w-5xl mx-auto">
@@ -50,7 +50,7 @@ const {
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex my-auto">
-                      <Button {...(action || {})} class="w-full rounded-none" />
+                      <Button {...(action || {})} class="w-full" />
                     </div>
                   ))
                 ) : (
