@@ -2,13 +2,13 @@
   <g clip-path="url(#clip0_4_43)">
     <path
       d="M45.0191 0.126027L45.0169 0.121582L20.9493 14.0402C28.6012 27.3154 30.6375 42.7667 26.6837 57.5478C22.7296 72.3289 13.2527 84.6903 0 92.3551L13.8951 116.463C32.4191 105.75 45.9712 88.8503 52.4002 68.5885L71.3038 101.386H103.394L45.0268 0.121582L45.0191 0.126027Z"
-      fill="white" />
+      fill="black" />
     <path d="M100.939 0.123291L76.8721 14.0419L127.217 101.387H159.306L100.939 0.123291Z"
-      fill="white" />
+      fill="black" />
   </g>
   <defs>
     <clipPath id="clip0_4_43">
-      <rect width="160" height="116.757" fill="white" transform="translate(0 0.121582)" />
+      <rect width="160" height="116.757" fill="black" transform="translate(0 0.121582)" />
     </clipPath>
   </defs>
 </svg>
