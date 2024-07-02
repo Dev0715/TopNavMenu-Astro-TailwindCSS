@@ -26,5 +26,5 @@ jobs:
 
       - name: Deploy Project Artifacts to Vercel
         run: |
-          vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-          vercel alias $PREVIEW_URL dev.markular.no --token=${{ secrets.VERCEL_TOKEN }} --scope base-12
+          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" dev.markular.no --scope base-12
