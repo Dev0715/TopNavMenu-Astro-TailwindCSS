@@ -25,7 +25,9 @@ const {
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  <div class="relative max-w-full mx-auto px-[1.25rem] bg-gradient-to-br from-myellow-300 to-myellow-100">
+  <div
+    class="relative max-w-full mx-auto px-[1.25rem] bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100"
+  >
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
       <div class="text-start pb-10 md:pb-16 max-w-5xl mx-auto">
@@ -37,20 +39,20 @@ const {
         {
           title && (
             <h1
-              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-base text-primary mb-6 dark:text-slate-300" set:html={subtitle} />}
           {
             actions && (
               <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex my-auto">
-                      <Button {...(action || {})} class="w-full" />
+                      <Button {...(action || {})} class="w-full text-base" />
                     </div>
                   ))
                 ) : (
@@ -70,7 +72,7 @@ const {
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto rounded-none w-full"
+                  class="mx-auto w-full"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"

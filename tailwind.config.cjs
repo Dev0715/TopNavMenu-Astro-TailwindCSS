@@ -14,6 +14,7 @@ module.exports = {
         myellow: {
           100: '#FCFFC7',
           300: '#E9FF48',
+          600: '#93B100',
           900: '#48590E',
           950: '#263201',
         },
@@ -21,7 +22,8 @@ module.exports = {
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        heading: ['var(--aw-font-heading, ui-sans-serif)'],
+        button: ['var(--aw-font-button, ui-sans-serif)'],
       },
     },
   },

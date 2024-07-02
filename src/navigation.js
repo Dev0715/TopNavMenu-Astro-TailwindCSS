@@ -121,52 +121,52 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: '',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
+        { text: 'About Us', href: '#' },
+        { text: 'Product', href: '#' },
+        { text: 'Solutions', href: '#' },
         { text: 'Resources', href: '#' },
+        { text: 'Pricing', href: '#' },
       ],
     },
+    // {
+    //   title: 'Platform',
+    //   links: [
+    //     { text: 'Developer API', href: '#' },
+    //     { text: 'Partners', href: '#' },
+    //   ],
+    // },
     {
-      title: 'Platform',
+      title: '',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
+        { text: 'Contact Us', href: '#' },
+        { text: 'FAQ', href: '#' },
+        { text: 'Demo', href: '#' },
         { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Privacy Policy', href: '#' },
       ],
     },
+    // {
+    //   title: 'Company',
+    //   links: [
+    //     { text: 'About', href: '#' },
+    //     { text: 'Blog', href: '#' },
+    //     { text: 'Careers', href: '#' },
+    //     { text: 'Press', href: '#' },
+    //     { text: 'Inclusion', href: '#' },
+    //     { text: 'Social Impact', href: '#' },
+    //     { text: 'Shop', href: '#' },
+    //   ],
+    // },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
+    // { text: 'Address', href: getPermalink('/terms') },
+    { text: 'Terms of service', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
