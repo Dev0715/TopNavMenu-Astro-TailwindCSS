@@ -1,6 +1,5 @@
 ---
 import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import type { Testimonials as Props } from '~/types';
@@ -13,13 +12,11 @@ const {
   callToAction,
 
   id,
-  isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<section id={id} class={`mx-auto sm:pb-[14rem] relative not-prose ${classes?.container ?? ''}`}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
   <div class="w-full flex justify-center">
@@ -72,4 +69,4 @@ const {
       </div>
     )
   }
-</WidgetWrapper>
+</section>
