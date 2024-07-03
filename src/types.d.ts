@@ -218,6 +218,7 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   actions?: string | CallToAction[];
   image?: string | unknown;
   classes?: Record<string, string>;
+  isReversed?: boolean;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {

@@ -16,6 +16,7 @@ const {
   image = await Astro.slots.render('image'),
 
   classes = {},
+  isReversed = false,
 
   id,
   bg = await Astro.slots.render('bg'),
@@ -32,8 +33,13 @@ const { container: containerClass = '' } = classes;
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
-      <div class="basis-1/2 text-left pb-10 md:pb-16 mx-auto">
+    <div
+      class={twMerge(
+        'py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8',
+        isReversed ? 'lg:flex-row-reverse' : ''
+      )}
+    >
+      <div class="basis-1/2 flex flex-col gap-6 text-start mx-auto">
         {
           tagline && (
             <p
@@ -45,17 +51,17 @@ const { container: containerClass = '' } = classes;
         {
           title && (
             <h1
-              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200"
+              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto lg:max-w-none">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-xl text-primary dark:text-slate-300" set:html={subtitle} />}
 
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
+              <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row gap-[1.5rem] mt-10">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex my-auto">
@@ -71,7 +77,7 @@ const { container: containerClass = '' } = classes;
         </div>
         {content && <Fragment set:html={content} />}
       </div>
-      <div class="basis-1/2">
+      <div class="basis-1/2 mt-12">
         {
           image && (
             <div class="relative m-auto max-w-5xl">

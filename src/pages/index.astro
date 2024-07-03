@@ -20,14 +20,14 @@ const metadata = {
 
   <Hero
     actions={[{ variant: 'primary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/hero-office.png', alt: 'People in a meeting room' }}
+    image={{ src: '~/assets/images/control_room.png', alt: 'Person in a control room' }}
   >
-    <Fragment slot="title"> Optimize Your <br />Business with Markular's <br />Solutions </Fragment>
+    <Fragment slot="title"> Streamline HR, Scheduling, and Resource Coordination with Markular</Fragment>
 
     <Fragment slot="subtitle">
-      Markular is a premier SaaS company that offers cutting-edge software solutions tailored for medium to large
-      enterprises. Our platform optimizes team composition and productivity, while providing comprehensive HR tools for
-      recruitment and performance management.
+      Say goodbye to fragmented systems, multiple spreadsheets, and manual reporting. With Markular, you get an
+      intuitive system that streamlines your processes while minimizing errors. Managing your resources has never been
+      easier! Empower your business with Markular’s comprehensive solution for seamless HR and operations management.
     </Fragment>
   </Hero>
 
@@ -36,24 +36,20 @@ const metadata = {
       { variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" },
       { variant: 'link', text: 'Sign Up', href: '#features', icon: 'tabler:chevron-right' },
     ]}
-    image={{ src: '~/assets/images/office-guy.png', alt: 'Person in office smiling' }}
+    image={{ src: '~/assets/images/rig.png', alt: 'Person crossing a rig bridge' }}
   >
     <Fragment slot="tagline">
-      <div class="text-left">
+      <div>
         <Icon name="marktopright" class="text-[5rem] text-primary" />
       </div></Fragment
     >
-    <Fragment slot="title">
-      <div class="text-left">
-        Streamline your<br /> team composition<br /> and boost<br /> productivity
-      </div></Fragment
-    >
+    <Fragment slot="title"> <div>Transform Your Workforce Planning and Management</div></Fragment>
 
     <Fragment slot="subtitle">
-      <div class="text-left">
-        Markular's premier SaaS platform offers cutting-edge software solutions designed to optimize resource selection
-        and personnel management. With comprehensive HR tools, from recruitment to performance management, we ensure
-        your team is always at its best.
+      <div>
+        Struggling with fragmented systems and manual reporting? Markular streamlines HR and operations, unifying
+        employee management, shift planning, and time tracking. Simplify your business processes with our intuitive
+        platform, designed for medium to large enterprises.
       </div>
     </Fragment>
   </Hero2>
@@ -62,42 +58,39 @@ const metadata = {
     classes={{
       container: 'text-white bg-gradient-to-br from-myellow-900 via-myellow-950 to-myellow-950',
     }}
-    title="Boost Your Productivity"
-    subtitle="Markular's platform helps you optimize team composition and productivity."
-    tagline="Streamline"
+    title="Team Efficiency and Productivy"
+    subtitle="Optimize your business with a platform designed to streamline team management and boost productivity."
+    tagline="Maximize"
     items={[
       {
         title: 'Efficient Resource Allocation',
-        description: 'Our platform ensures the right resources for each job.',
+        description: 'Optimize resource allocation with precision.',
         icon: 'markright',
         classes: {
           panel: 'bg-myellow-950',
         },
       },
       {
-        title: 'Comprehensive HR Tools',
-        description: 'Manage recruitment and performance with ease.',
+        title: 'Time Tracking and HR Tools',
+        description: 'Simplify performance management with powerful HR tools.',
         icon: 'markup',
         classes: {
           panel: 'bg-myellow-950',
         },
       },
       {
-        title: 'Seamless Team Collaboration',
-        description: "Collaborate effectively with Markular's platform.",
+        title: 'Competency Management',
+        description: 'Ensure certificates are up to date with comprehensive overview.',
         icon: 'marktopright',
         classes: {
           panel: 'bg-myellow-950',
         },
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  />
 
   <Hero2
+    isReversed={true}
     actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
     image={{ src: '~/assets/images/office-hang.png', alt: '2 people hanging out in the office' }}
     classes={{
@@ -105,17 +98,17 @@ const metadata = {
     }}
   >
     <Fragment slot="tagline">
-      <div class="text-left">
+      <div>
         <Icon name="markperson" class="text-[5rem] text-primary" />
       </div></Fragment
     >
-    <Fragment slot="title"> <div class="text-left">Boost productivity and optimize team composition</div></Fragment>
+    <Fragment slot="title"> <div>Move Your Workforce into the Digital Future with Markular</div></Fragment>
 
     <Fragment slot="subtitle">
-      <div class="text-left">
-        Markular empowers businesses to streamline resource selection and HR tasks, resulting in increased productivity
-        and improved team composition. Our cutting-edge software solutions provide comprehensive tools for recruitment,
-        performance management, and more.
+      <div>
+        Digitalizing your planning and operational processes requires transforming how your team works. Markular helps
+        you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into action,
+        ensuring perfect execution.
       </div>
     </Fragment>
   </Hero2>
@@ -130,13 +123,11 @@ const metadata = {
       container: 'bg-white',
     }}
   >
-    <Fragment slot="tagline"> <div class="text-left">Innovative</div></Fragment>
-    <Fragment slot="title">
-      <div class="text-left">Experience the Power of Markular's Cutting-Edge Solutions</div></Fragment
-    >
+    <Fragment slot="tagline"> <div>Innovative</div></Fragment>
+    <Fragment slot="title"> <div>Experience the Power of Markular's Cutting-Edge Solutions</div></Fragment>
 
     <Fragment slot="subtitle">
-      <div class="text-left">
+      <div>
         Markular delivers exceptional software solutions that drive productivity and optimize team composition. Our
         platform streamlines resource selection and offers comprehensive HR tools.
 
@@ -165,9 +156,9 @@ const metadata = {
   />
 
   <section class="bg-accent py-16">
-    <div class="relative max-w-7xl mx-5">
+    <div class="relative max-w-7xl mx-5 md:mx-16">
       <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-      <div>
+      <div class="md:flex">
         <div class="basis-1/2 bg-secondary py-8 text-left px-8 mx-auto">
           <h1 class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200">
             Discover the Power of Markular
@@ -178,10 +169,10 @@ const metadata = {
               Streamline your team composition and boost productivity with Markular's cutting-edge software solutions.
             </p>
 
-              <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
-                <div class="flex my-auto">
-                  <Button class="w-full text-base bg-white">Learn More</Button>
-                </div>
+            <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
+              <div class="flex my-auto">
+                <Button class="w-full text-base bg-white">Learn More</Button>
+              </div>
             </div>
           </div>
         </div>
@@ -202,5 +193,4 @@ const metadata = {
       </div>
     </div>
   </section>
-
 </Layout>
