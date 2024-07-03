@@ -1,40 +1,48 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+const CASE_STUDIES = 'Case Studies';
+const ABOUT_US = 'About Us';
+
 export const headerData = {
   links: [
     {
-      text: 'Discover',
-      href: '#',
-    },
-    {
-      text: 'About Us',
-      href: '#',
-    },
-    {
-      text: 'Features',
-      href: '#',
-    },
-    {
-      text: 'Solutions',
+      text: 'Operational Management Suite',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: 'HR Manager',
+          href: getPermalink('/apps/people'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'Personnel Planner',
+          href: getPermalink('/apps/planner'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          text: 'Logistics & Equipment Rental',
+          href: getPermalink('/apps/rentals'),
         },
         {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Time Tracker',
+          href: getPermalink('/apps/time-tracker'),
+        },
+        {
+          text: 'Competency Manager',
+          href: getPermalink('/apps/competency'),
         },
       ],
     },
+    {
+      text: CASE_STUDIES,
+      href: getPermalink('/case-studies'),
+    },
+    {
+      text: ABOUT_US,
+      href: getPermalink('/about'),
+    },
+    // {
+    //   text: 'Features',
+    //   href: '#',
+    // },
+
     // {
     //   text: 'Pages',
     //   links: [
@@ -127,7 +135,8 @@ export const headerData = {
     //   href: '#',
     // },
   ],
-  actions: [{ text: 'Demo', href: '#', target: '_blank' }],
+  // actions: [{ text: 'Demo', href: getPermalink('/contact'), target: '_blank' }],
+  actions: [{ text: 'Contact Us', href: getPermalink('/contact'), variant: 'primary' }],
 };
 
 export const footerData = {
@@ -135,11 +144,11 @@ export const footerData = {
     {
       title: '',
       links: [
-        { text: 'About Us', href: '#' },
-        { text: 'Product', href: '#' },
-        { text: 'Solutions', href: '#' },
-        { text: 'Resources', href: '#' },
-        { text: 'Pricing', href: '#' },
+        { text: CASE_STUDIES, href: getPermalink('/case-studies') },
+        { text: ABOUT_US, href: getPermalink('/about') },
+        // { text: 'Solutions', href: '#' },
+        // { text: 'Resources', href: '#' },
+        // { text: 'Pricing', href: '#' },
       ],
     },
     // {
@@ -152,11 +161,11 @@ export const footerData = {
     {
       title: '',
       links: [
-        { text: 'Contact Us', href: '#' },
-        { text: 'FAQ', href: '#' },
-        { text: 'Demo', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Privacy Policy', href: '#' },
+        { text: 'Contact Us', href: getPermalink('/contact') },
+        // { text: 'FAQ', href: '#' },
+        // { text: 'Demo', href: '#' },
+        // { text: 'Careers', href: '#' },
+        { text: 'Privacy Policy', href: getPermalink('/privacy') },
       ],
     },
     // {
@@ -174,13 +183,15 @@ export const footerData = {
   ],
   secondaryLinks: [
     // { text: 'Address', href: getPermalink('/terms') },
-    { text: 'Terms of service', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Terms', href: getPermalink('/terms') },
+    { text: 'Privacy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    {
+      ariaLabel: 'LinkedIn',
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/company/2910283',
+      target: '_blank',
+    },
   ],
 };

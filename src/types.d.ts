@@ -221,6 +221,10 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   isReversed?: boolean;
 }
 
+export interface HeroCollage extends Omit<Hero, 'image'> {
+  images?: Array<Image & { height?: number; width?: number }>;
+}
+
 export interface Team extends Omit<Headline, 'classes'>, Widget {
   team?: Array<TeamMember>;
 }

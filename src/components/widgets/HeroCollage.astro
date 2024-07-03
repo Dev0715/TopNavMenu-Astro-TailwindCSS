@@ -4,7 +4,7 @@ import Button from '~/components/ui/Button.astro';
 import { twMerge } from 'tailwind-merge';
 // import Background from '~/components/ui/Background.astro';
 
-import type { Hero as Props } from '~/types';
+import type { HeroCollage as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
@@ -13,7 +13,7 @@ const {
 
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
-  image = await Astro.slots.render('image'),
+  images = await Astro.slots.render('images'),
 
   classes = {},
   isReversed = false,
@@ -23,6 +23,9 @@ const {
 } = Astro.props;
 
 const { container: containerClass = '' } = classes;
+
+const firstColumn = Array.isArray(images) && images.filter((_, index) => index % 2 === 0);
+const secondColumn = Array.isArray(images) && images.filter((_, index) => index % 2 === 1);
 ---
 
 <section class={twMerge('relative md:-mt-[76px] not-prose', containerClass)} {...id ? { id } : {}}>
@@ -78,25 +81,60 @@ const { container: containerClass = '' } = classes;
         {content && <Fragment set:html={content} />}
       </div>
       <div class="basis-1/2 mt-12">
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={600}
-                  height={600}
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
+        <!-- <div class="grid grid-cols-2 gap-8 bg-red-400">
+          {
+            Array.isArray(images) &&
+              images.map((image, index) => {
+                return (
+                  <Image
+                    class={twMerge('w-full mb-4', (index / 2) % 0 ? 'aspect-square' : 'aspect-video')}
+                    widths={[400, 768, 1024, 2040]}
+                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                    loading="eager"
+                    width={600}
+                    height={600}
+                    {...image}
+                  />
+                );
+              })
+          }
+        </div> -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="grid gap-4">
+            {
+              Array.isArray(firstColumn) &&
+                firstColumn.map((image) => (
+                  <div>
+                    <Image
+                      class={twMerge('w-full')}
+                      widths={[400, 768, 1024, 2040]}
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      loading="eager"
+                      width={600}
+                      height={600}
+                      {...image}
+                    />
+                  </div>
+                ))
+            }
+          </div>
+          <div class="grid gap-4">
+            {
+              Array.isArray(secondColumn) &&
+                secondColumn.map((image) => (
+                  <Image
+                    class={twMerge('w-full')}
+                    widths={[400, 768, 1024, 2040]}
+                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                    loading="eager"
+                    width={600}
+                    height={600}
+                    {...image}
+                  />
+                ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   </div>

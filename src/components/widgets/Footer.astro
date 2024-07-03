@@ -36,8 +36,8 @@ const currentYear = new Date().getFullYear();
 >
   <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-white">
-    <div class="flex flex-col gap-6 py-8 md:py-12">
-      <div class="">
+    <div class="flex flex-col md:flex md:flex-row gap-6 py-8 md:py-12">
+      <div class="md:basis-2/3">
         <div class="mb-2">
           <a class="inline-block font-bold text-xl" href={getHomePermalink()}>
             <Logo class="text-white" />
@@ -55,10 +55,10 @@ const currentYear = new Date().getFullYear();
           <span><a href="mailto:info@markular.com">info@markular.com</a></span>
         </div>
 
-        <div class="md:flex md:items-center md:justify-between pt-6 md:py-8">
+        <div class="md:flex md:items-center md:justify-start py-4">
           {
             socialLinks?.length ? (
-              <ul class="flex mb-4 md:order-1 -ml-2 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+              <ul class="flex mb-4 md:order-1 -ml-2 md:mb-0">
                 {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                   <li>
                     <a
@@ -78,7 +78,7 @@ const currentYear = new Date().getFullYear();
           }
         </div>
       </div>
-      <div class="flex flex-col gap-12">
+      <div class="flex flex-col gap-12 md:basis-1/3 md:grid md:grid-cols-2 md:gap-2">
         {
           links.map(({ title, links }) => (
             <div class="">
@@ -101,23 +101,25 @@ const currentYear = new Date().getFullYear();
             </div>
           ))
         }
-        <div class="text-sm text-white flex flex-col gap-1">
-          {
-            secondaryLinks.map(({ text, href }) => (
-              <>
-                <a
-                  class="text-white hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
-        </div>
       </div>
     </div>
-    <div class="w-full">
-      <span class="text-sm">© {currentYear} Markular. All rights reserved.</span>
+    <div
+      class="w-full text-white font-normal text-sm/[1.3125rem] flex flex-col-reverse md:flex md:flex-row md:justify-between gap-8 border-t border-secondary pt-6 pb-4 md:pt-8"
+    >
+      <span>© {currentYear} Markular. All rights reserved.</span>
+      <div class="underline flex flex-col md:flex-row gap-4 md:gap-6">
+        {
+          secondaryLinks.map(({ text, href }) => (
+            <>
+              <a
+                class="text-white hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                href={href}
+                set:html={text}
+              />
+            </>
+          ))
+        }
+      </div>
     </div>
   </div>
 </footer>
