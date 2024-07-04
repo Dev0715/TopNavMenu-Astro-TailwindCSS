@@ -17,9 +17,9 @@ const {
 ---
 
 <section id={id} class={`mx-auto sm:pb-[14rem] relative not-prose ${classes?.container ?? ''}`}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={{ container: 'md:mb-10' }} />
 
-  <div class="w-full flex justify-center">
+  <div class="w-full flex flex-col md:flex-row gap-4 md:gap-8 justify-center">
     {
       testimonials &&
         testimonials.map(({ title, testimonial, name, job, image }) => (

@@ -7,7 +7,6 @@ import Image from '~/components/common/Image.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'Markular',
@@ -32,28 +31,56 @@ const metadata = {
   </Hero>
 
   <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
+    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '' }]}
     image={{ src: '~/assets/images/rig.png', alt: 'Person crossing a rig bridge' }}
+    classes={{
+      container: 'bg-gradient-to-b from-myellow-100 via-white to-white',
+    }}
   >
     <Fragment slot="tagline">
       <div>
         <Icon name="marktopright" class="text-[5rem] text-primary" />
       </div></Fragment
     >
-    <Fragment slot="title"> <div>Transform Your Workforce Planning and Management</div></Fragment>
+    <Fragment slot="title"> <p>Transform Your Workforce Planning and Management</p></Fragment>
 
     <Fragment slot="subtitle">
-      <div>
+      <p>
         Struggling with fragmented systems and manual reporting? Markular streamlines HR and operations, unifying
         employee management, shift planning, and time tracking. Simplify your business processes with our intuitive
         platform, designed for medium to large enterprises.
-      </div>
+      </p>
+    </Fragment>
+  </Hero2>
+
+  <Hero2
+    isReversed={true}
+    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
+    image={{ src: '~/assets/images/office-hang.png', alt: '2 people hanging out in the office' }}
+    classes={{
+      container: 'bg-white',
+    }}
+  >
+    <Fragment slot="tagline">
+      <div>
+        <Icon name="markperson" class="text-[5rem] text-primary" />
+      </div></Fragment
+    >
+    <Fragment slot="title"> <p>Move Your Workforce into the Digital Future with Markular</p></Fragment>
+
+    <Fragment slot="subtitle">
+      <p>
+        Digitalizing your planning and operational processes requires transforming how your team works. Markular helps
+        you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into action,
+        ensuring perfect execution.
+      </p>
     </Fragment>
   </Hero2>
 
   <Features2
     classes={{
-      container: 'text-white bg-gradient-to-br from-myellow-900 via-myellow-950 to-myellow-950',
+      container:
+        'text-white max-w-max md:px-16 md:py-28 bg-gradient-to-br from-myellow-900 via-myellow-950 to-myellow-950',
     }}
     title="Team Efficiency and Productivy"
     subtitle="Optimize your business with a platform designed to streamline team management and boost productivity."
@@ -90,31 +117,7 @@ const metadata = {
   />
 
   <Hero2
-    isReversed={true}
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
-    image={{ src: '~/assets/images/office-hang.png', alt: '2 people hanging out in the office' }}
-    classes={{
-      container: 'bg-white',
-    }}
-  >
-    <Fragment slot="tagline">
-      <div>
-        <Icon name="markperson" class="text-[5rem] text-primary" />
-      </div></Fragment
-    >
-    <Fragment slot="title"> <div>Move Your Workforce into the Digital Future with Markular</div></Fragment>
-
-    <Fragment slot="subtitle">
-      <div>
-        Digitalizing your planning and operational processes requires transforming how your team works. Markular helps
-        you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into action,
-        ensuring perfect execution.
-      </div>
-    </Fragment>
-  </Hero2>
-
-  <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
+    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '' }]}
     image={{ src: '~/assets/images/meeting-room.png', alt: 'people in a meeting room' }}
     classes={{
       container: 'bg-white',
@@ -140,21 +143,35 @@ const metadata = {
     </Fragment>
   </Hero2>
 
-  <Testimonials
-    title="Weatherford"
-    testimonials={[
-      {
-        name: 'Geir Ståle',
-        job: 'CEO, Weatherford',
-        title: 'Revolutionizing HR',
-        testimonial:
-          'Markular has been a game-changer for us. Their platform has helped us streamline our HR processes and optimize team composition. We are proud to partner with Markular and look forward to continued success.',
-      },
-    ]}
-    classes={{
-      container: 'bg-white text-center',
-    }}
-  />
+  <section class=`bg-white mx-auto sm:pb-[14rem] relative not-prose`>
+    <div class="relative max-w-sm md:max-w-4xl mx-auto px-6 md:px-4 py-6">
+      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+      <div class="bg-accent text-left p-6 md:p-16">
+        <div class="flex items-center justify-evenly mb-9">
+          <Image
+            class=""
+            width={120}
+            height={50}
+            widths={[400, 768]}
+            layout="fixed"
+            src="~/assets/images/weatherford.png"
+            alt="Weatherford logo"
+          />
+        </div>
+        <p class="font-semibold text-lg md:text-xl font-['Outfit'] text-center">
+          With Markular, you join the ranks of leading oilfield service companies<span class="hidden md:inline-block">
+            like Weatherford and Archer</span
+          >. Sign up today and gain a competitive edge for tomorrow!
+        </p>
+
+        <div class="flex flex-row justify-center gap-[1.5rem] mt-10">
+          <div class="flex my-auto">
+            <Button variant="primary" href="#" text="Contact Us" class="w-full text-sm" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="bg-accent py-16 relative md:-mt-[76px] not-prose">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">

@@ -144,6 +144,17 @@ export const footerData = {
     {
       title: '',
       links: [
+        { text: 'HR Manager', href: getPermalink('/apps/people') },
+        { text: 'Personnel Planner', href: getPermalink('/apps/planner') },
+        { text: 'Logistics & Equipment Rental', href: getPermalink('/apps/rental') },
+        { text: 'Time Tracker', href: getPermalink('/apps/time-tracker') },
+        { text: 'Competency Manager', href: getPermalink('/apps/compentency') },
+      ],
+    },
+
+    {
+      title: '',
+      links: [
         { text: CASE_STUDIES, href: getPermalink('/case-studies') },
         { text: ABOUT_US, href: getPermalink('/about') },
         // { text: 'Solutions', href: '#' },
@@ -190,7 +201,7 @@ export const footerData = {
     {
       ariaLabel: 'LinkedIn',
       icon: 'tabler:brand-linkedin',
-      href: 'https://www.linkedin.com/company/2910283',
+      href: 'https://www.linkedin.com/company/markular',
       target: '_blank',
     },
   ],
