@@ -1,14 +1,13 @@
 ---
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-// import Background from '~/components/ui/Background.astro';
 
 import type { Hero as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  tagline,
+  // tagline,
 
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
@@ -19,36 +18,31 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+<section class="md:-mt-[4.5rem] not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
   <div
-    class="relative max-w-full mx-auto px-[1.25rem] bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100"
+    class="max-w-full px-6 pt-9 pb-16 md:px-16 md:py-28 bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100"
   >
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div class="text-start sm:text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        {
+    <div class="pt-0 md:pt-[4.5rem] pointer-events-none"></div>
+    <div class="flex flex-col md:items-center gap-12 md:gap-20">
+      <div class="flex flex-col items-start md:items-center gap-2 md:gap-6 md:max-w-3xl">
+        <!-- {
           tagline && (
             <p class="text-base text-primary dark:text-blue-200 font-bold tracking-wide uppercase" set:html={tagline} />
           )
-        }
-        {
-          title && (
-            <h1
-              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-base text-primary mb-6 dark:text-slate-300" set:html={subtitle} />}
+        } -->
+        <div class="flex flex-col gap-5 md:gap-6 text-start md:text-center self-stretch">
+          {title && <h1 set:html={title} />}
+          {subtitle && <p class="text-lg font-normal md:text-center" set:html={subtitle} />}
+        </div>
+        <div>
           {
             actions && (
-              <div class="max-w-xs sm:max-w-full flex flex-nowrap flex-row sm:justify-center gap-[1.5rem]">
+              <div class="max-w-full flex flex-nowrap flex-row justify-center mt-4 gap-[1.5rem]">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex my-auto">
@@ -64,27 +58,26 @@ const {
         </div>
         {content && <Fragment set:html={content} />}
       </div>
-      <div>
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
-      </div>
+
+      {
+        image && (
+          <div class="w-full xl:max-w-[75rem] flex justify-center">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="min-w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>

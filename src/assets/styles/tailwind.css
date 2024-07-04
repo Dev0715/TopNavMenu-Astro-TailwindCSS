@@ -9,7 +9,31 @@
   h4,
   h5,
   h6 {
-    @apply font-outfit;
+    @apply font-outfit font-semibold text-primary;
+  }
+
+  h1 {
+    @apply text-[2.5rem]/[3rem] md:text-[3.5rem]/[4.2rem];
+  }
+
+  h2 {
+    @apply text-[2.25rem]/[2.7rem] md:text-[3rem]/[3.6rem];
+  }
+
+  h3 {
+    @apply text-[2rem]/[2.4rem] md:text-[2.5rem]/[3rem];
+  }
+
+  h4 {
+    @apply text-[1.5rem]/[2.1rem] md:text-[2rem]/[2.6rem];
+  }
+
+  h5 {
+    @apply text-[1.25rem]/[1.75rem] md:text-[1.5rem]/[2.1rem];
+  }
+
+  h6 {
+    @apply text-[1.125rem]/[1.575rem] md:text-[1.25rem]/[1.75rem];
   }
 }
 
