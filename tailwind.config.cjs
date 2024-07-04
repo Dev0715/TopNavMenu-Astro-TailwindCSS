@@ -26,6 +26,8 @@ module.exports = {
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-sans-serif)'],
         button: ['var(--aw-font-button, ui-sans-serif)'],
+        fira: ['Fira Mono', 'monospace'],
+        outfit: ['Outfit', 'ui-sans-serif'],
       },
     },
   },
