@@ -8,7 +8,7 @@
     "node": "18.17.1 || 20.3.0 || >= 21.0.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -58,6 +58,7 @@
     "sharp": "0.33.4",
     "tailwind-merge": "2.3.0",
     "tailwindcss": "3.4.4",
+    "tailwindcss-debug-screens": "^2.2.1",
     "typescript": "5.5.3",
     "typescript-eslint": "7.15.0"
   }

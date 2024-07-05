@@ -25,7 +25,7 @@ const {
 const { container: containerClass = '' } = classes;
 ---
 
-<section class={twMerge('relative md:-mt-[76px] not-prose', containerClass)} {...id ? { id } : {}}>
+<section class={twMerge('not-prose', containerClass)} {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
