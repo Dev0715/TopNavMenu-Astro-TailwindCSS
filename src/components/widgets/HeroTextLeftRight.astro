@@ -1,0 +1,20 @@
+---
+export interface Props {
+  textLeft?: string;
+  textRight?: string;
+}
+
+const { textLeft = await Astro.slots.render('textLeft'), textRight = await Astro.slots.render('textRight') } =
+  Astro.props;
+---
+
+<section class="not-prose bg-red-300">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto w-full px-5 md:px-16 py-16 md:py-28 bg-purple-400">
+    <div class="pt-0 pointer-events-none"></div>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20 bg-teal-300">
+      {textLeft && <h1 class="flex-1 bg-red-300" set:html={textLeft} />}
+      {textRight && <p class="flex-1 text-lg font-fira" set:html={textRight} />}
+    </div>
+  </div>
+</section>
