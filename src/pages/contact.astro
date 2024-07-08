@@ -1,5 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import SectionLayout from '~/layouts/SectionLayout.astro';
+
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -10,70 +16,153 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
+  <SectionLayout
+    classes={{
+      container: 'md:px-0 md:py-0',
     }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+  >
+    <div class="flex flex-col gap-2 md:gap-0">
+      <Image
+        class="min-w-full md:h-[64rem]"
+        widths={[400, 768, 1024, 2040]}
+        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+        loading="eager"
+        width={1024}
+        height={640}
+        src="~/assets/images/control_room.png"
+        alt="Person in a control room"
+      />
+      <div class="flex flex-col md:flex-row md:px-16 md:py-20 gap-6 md:gap-20">
+        <div class="basis-1/2">
+          <h1>Get in touch with us for more information.</h1>
+        </div>
+        <div class="basis-1/2 flex flex-col gap-6">
+          <p>We're here to help. Contact us today!</p>
+          <div class="flex flex-col md:flex-row gap-4 md:w-[75%] md:h-12">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+              placeholder="Your email adress"
+              class="basis-3/4 p-3 h-12 border border-black bg-white"
+            />
+            <Button variant="primary" text="Submit form" class="text-base" />
+          </div>
+          <p class="text-sm">By submitting the form, you agree to our Terms and Conditions.</p>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      container: '',
     }}
-    description="Our support team typically responds within 24 business hours."
-  />
+  >
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div class="basis-1/2 flex flex-col gap-4 md:gap-8">
+        <div class="flex flex-col gap-3 md:gap-6 justify-between">
+          <p class="font-semibold text-base">Streamline</p>
+          <h2>Get in Touch</h2>
+          <p class="text-lg">Have a question or need assistance? We're here to help!</p>
+        </div>
 
-  <!-- Features2 Widget ************** -->
+        <div class="flex flex-col gap-4 underline">
+          <p class="flex gap-2 items-center">
+            <Icon name="tabler:mail" class="text-sm text-primary" />
+            <a href="mailto:hello@markular.com" target="_blank">hello@markular.com</a>
+          </p>
+          <p class="flex gap-2 items-center">
+            <Icon name="tabler:phone" class="text-sm text-primary" />
+            <a href="tel:+4793287830" target="_blank">+47 932 87 830</a>
+          </p>
+          <p class="flex gap-2 items-center">
+            <Icon name="tabler:map-pin" class="text-sm text-primary" />
+            <a href="https://maps.app.goo.gl/uYhhihQ1BgkA3Lr18" target="_blank">Nedre Banegate 41, 4014 Stavanger</a>
+          </p>
+        </div>
+      </div>
+      <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
+        <div class="w-full flex flex-col md:flex-row gap-6">
+          <div class="basis-1/2 flex flex-col gap-2">
+            <label for="firstname" class="text-base"> First Name </label>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+            <input type="text" name="firstname" class="py-3 px-4 w-full border border-black" />
+          </div>
+          <div class="basis-1/2 flex flex-col gap-2">
+            <label for="lastname" class="text-base"> Last Name </label>
+
+            <input type="text" name="lastname" class="py-3 px-4 w-full border border-black" />
+          </div>
+        </div>
+        <div class="w-full flex flex-col md:flex-row gap-6">
+          <div class="basis-1/2 flex flex-col gap-2">
+            <label for="email" class="text-base"> Email</label>
+
+            <input type="email" name="email" autocomplete="on" class="py-3 px-4 w-full border border-black" />
+          </div>
+          <div class="basis-1/2 flex flex-col gap-2">
+            <label for="phone" class="text-base"> Phone Number </label>
+
+            <input type="text" name="phone" class="py-3 px-4 w-full border border-black" />
+          </div>
+        </div>
+        <div class="w-full flex flex-col gap-2">
+          <label for="message" class="text-base"> Message</label>
+
+          <textarea name="message" class="py-3 px-4 w-full h-44 border border-black"></textarea>
+        </div>
+        <div>
+          <input type="checkbox" name="disclaimer" id="disclaimer" class="p-4 w-h h-4 border border-black" />
+          <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+            I understand and I accept that the data provided when sending this form will be stored as described in the <a
+              href="/privacy"
+              target="_blank"
+              class="underline"
+            >
+              Privacy Statement</a
+            >.
+          </label>
+        </div>
+        <div>
+          <Button type="submit" variant="primary" text="Submit form" class="text-base" />
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout>
+    <div class="flex flex-col gap-6 md-gap-20">
+      <div class="flex flex-col gap-4">
+        <h2>Our Location</h2>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-6 md:gap-16">
+        <div class="flex flex-col gap-8">
+          <Image
+            class="basis-1/2"
+            widths={[400, 768, 1024, 2040]}
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={624}
+            height={384}
+            src="~/assets/images/absinthen.png"
+            alt="Absinthen Stavanger"
+          />
+          <div class="flex flex-col gap-4">
+            <h4>Stavanger, Norway</h4>
+            <p class="underline">
+              <a href="https://maps.app.goo.gl/uYhhihQ1BgkA3Lr18" target="_blank">Nedre Banegate 41, 4014 Stavanger</a>
+            </p>
+          </div>
+
+          <p class="underline">
+            <a href="https://maps.app.goo.gl/uYhhihQ1BgkA3Lr18" target="_blank">Get Directions</a>
+          </p>
+        </div>
+        <p class="basis-1/2"></p>
+      </div>
+    </div>
+  </SectionLayout>
 </Layout>
