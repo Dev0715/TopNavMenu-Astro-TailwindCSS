@@ -1,7 +1,7 @@
 {
-  "name": "@onwidget/astrowind",
-  "version": "1.0.0-beta.38",
-  "description": "AstroWind: A free template using Astro 4.0 and Tailwind CSS. Astro starter theme.",
+  "name": "markularweb",
+  "version": "0.0.0",
+  "description": "Markular Marketing Website",
   "type": "module",
   "private": true,
   "engines": {
