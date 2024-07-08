@@ -156,7 +156,7 @@ export const footerData = {
       title: '',
       links: [
         { text: CASE_STUDIES, href: getPermalink('/case-studies') },
-        { text: ABOUT_US, href: getPermalink('/about') },
+
         // { text: 'Solutions', href: '#' },
         // { text: 'Resources', href: '#' },
         // { text: 'Pricing', href: '#' },
@@ -173,10 +173,11 @@ export const footerData = {
       title: '',
       links: [
         { text: 'Contact Us', href: getPermalink('/contact') },
+        { text: ABOUT_US, href: getPermalink('/about') },
         // { text: 'FAQ', href: '#' },
         // { text: 'Demo', href: '#' },
         // { text: 'Careers', href: '#' },
-        { text: 'Privacy Policy', href: getPermalink('/privacy') },
+        // { text: 'Privacy Policy', href: getPermalink('/privacy') },
       ],
     },
     // {
@@ -194,7 +195,7 @@ export const footerData = {
   ],
   secondaryLinks: [
     // { text: 'Address', href: getPermalink('/terms') },
-    { text: 'Terms', href: getPermalink('/terms') },
+    // { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy', href: getPermalink('/privacy') },
   ],
   socialLinks: [

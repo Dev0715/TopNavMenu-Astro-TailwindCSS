@@ -46,15 +46,15 @@ const currentYear = new Date().getFullYear();
 
         <div class="text-sm text-white flex flex-col gap-2 mb-6">
           <span class="font-semibold">Address:</span>
-          <a class="underline" href="https://maps.app.goo.gl/uYhhihQ1BgkA3Lr18" target="_blank"
+          <a class="underline hover:text-secondary" href="https://maps.app.goo.gl/uYhhihQ1BgkA3Lr18" target="_blank"
             >Nedre banegate 41, 4014 Stavanger, Norway</a
           >
         </div>
 
         <div class="text-sm text-white flex flex-col gap-2">
           <span class="font-semibold">Contact:</span>
-          <span class="underline"><a href="tel=+4793287830">932 87 830</a></span>
-          <span class="underline"><a href="mailto:hello@markular.com">hello@markular.com</a></span>
+          <span class="underline hover:text-secondary"><a href="tel=+4793287830">932 87 830</a></span>
+          <span class="underline hover:text-secondary"><a href="mailto:hello@markular.com">hello@markular.com</a></span>
         </div>
 
         <div class="md:flex md:items-center md:justify-start py-4">
@@ -64,7 +64,7 @@ const currentYear = new Date().getFullYear();
                 {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                   <li>
                     <a
-                      class="text-white dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                      class="text-white hover:text-secondary focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                       aria-label={ariaLabel}
                       href={href}
                       target="_blank"
@@ -85,16 +85,12 @@ const currentYear = new Date().getFullYear();
         {
           links.map(({ title, links }) => (
             <div class="">
-              <div class="dark:text-white font-medium mb-2">{title}</div>
+              <div class="font-medium mb-2">{title}</div>
               {links && Array.isArray(links) && links.length > 0 && (
                 <ul class="text-sm">
                   {links.map(({ text, href, ariaLabel }) => (
-                    <li class="mb-2 md:mb-4">
-                      <a
-                        class="text-white hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
-                        href={href}
-                        aria-label={ariaLabel}
-                      >
+                    <li class="mb-2 md:mb-4 hover:underline hover:text-secondary">
+                      <a href={href} aria-label={ariaLabel}>
                         <Fragment set:html={text} />
                       </a>
                     </li>
@@ -110,12 +106,12 @@ const currentYear = new Date().getFullYear();
       class="w-full text-white font-normal text-sm/[1.3125rem] flex flex-col-reverse md:flex md:flex-row md:justify-between gap-8 border-t border-secondary pt-6 pb-16 md:pt-8"
     >
       <span>© {currentYear} Markular. All rights reserved.</span>
-      <div class="underline flex flex-col md:flex-row gap-4 md:gap-6">
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6">
         {
           secondaryLinks.map(({ text, href }) => (
             <>
               <a
-                class="text-white hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                class="text-white hover:text-gray-700 dark:text-gray-400 hover:underline hover:text-secondary transition duration-150 ease-in-out"
                 href={href}
                 set:html={text}
               />
