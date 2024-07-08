@@ -10,19 +10,46 @@ on:
       - main
 
 jobs:
-  Deploy-Preview:
+  Deploy-Production:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
+      - name: Cache Vercel CLI
+        uses: actions/cache@v3
+        with:
+          path: ~/.vercel
+          key: vercel-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            vercel-${{ runner.os }}-
+
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Cache Build Artifacts
+        uses: actions/cache@v3
+        with:
+          path: .vercel/output
+          key: build-${{ runner.os }}-${{ hashFiles('**/*') }}
+          restore-keys: |
+            build-${{ runner.os }}-
 
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt  --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
