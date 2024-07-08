@@ -40,14 +40,6 @@ jobs:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Cache Build Artifacts
-        uses: actions/cache@v3
-        with:
-          path: .vercel/output
-          key: build-${{ runner.os }}-${{ hashFiles('**/*') }}
-          restore-keys: |
-            build-${{ runner.os }}-
-
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
