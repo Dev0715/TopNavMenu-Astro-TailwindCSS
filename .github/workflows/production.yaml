@@ -29,14 +29,6 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Cache Vercel CLI
-        uses: actions/cache@v3
-        with:
-          path: ~/.vercel
-          key: vercel-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            vercel-${{ runner.os }}-
-
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
