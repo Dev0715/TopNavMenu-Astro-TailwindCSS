@@ -1,10 +1,12 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import HeroTextImage from '~/components/widgets/HeroTextImage.astro';
-import HeroTextLeftRight from '~/components/widgets/HeroTextLeftRight.astro';
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+
 import Layout from '~/layouts/PageLayout.astro';
+import SectionLayout from '~/layouts/SectionLayout.astro';
+
+import HeroTextLeftRight from '~/components/widgets/HeroTextLeftRight.astro';
 
 const metadata = {
   title: 'About us',
@@ -17,37 +19,248 @@ const metadata = {
     textRight="At Markular, we're on a mission to make your workday smoother and more productive. We understand that managing resources, coordinating personnel, and handling HR tasks can be complex and time-consuming. That's why we've created a platform that puts simplicity and intuition at the forefront."
   />
 
-  <HeroTextImage
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/rig.png', alt: 'Person crossing a rig bridge' }}
+  <SectionLayout
     classes={{
-      container: 'bg-gradient-to-b from-myellow-100 via-white to-white',
+      container: '',
     }}
   >
-    <Fragment slot="title"> Your Daily Operations Flow Effortlessly with Markular</Fragment>
-
-    <Fragment slot="subtitle">
-      <p>
-        In an industry where efficiency and precision are paramount, we understand the challenges faced by energy
-        companies in managing their resources effectively. That's why we've developed the Markular platform – a
-        comprehensive tool designed to meet the unique needs of energy sector operations.
-      </p>
-    </Fragment>
-  </HeroTextImage>
-
-  <Hero image={{ src: '~/assets/images/control_room.png', alt: 'Person in a control room' }}>
-    <!-- <Fragment slot="title"> Streamline HR, Scheduling, and Resource Coordination with Markular</Fragment> -->
-
-    <Fragment slot="content">
-      <section class="flex gap-12 md:gap-20">
-        <h2 class="basis-1/2">
-          Providing Clear Visibility into Company Resources to Optimize Utilization and Planning
-        </h2>
-        <div class="basis-1/2 flex flex-col md:gap-8">
-          <div class="flex flex-col gap-4">yolo</div>
-          <div class="flex gap-6">yolo</div>
+    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+      <div class="basis-1/2 flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
+        <div class="h-auto overflow-auto">
+          <h3>Your Daily Operations Flow Effortlessly with Markular</h3>
+          <p>
+            In an industry where efficiency and precision are paramount, we understand the challenges faced by energy
+            companies in managing their resources effectively. That's why we've developed the Markular platform – a
+            comprehensive tool designed to meet the unique needs of energy sector operations.
+          </p>
         </div>
-      </section>
-    </Fragment>
-  </Hero>
+      </div>
+
+      <div class="basis-1/2 w-full xl:max-w-[75rem] flex justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      container: '',
+    }}
+  >
+    <div class="flex flex-col gap-6 md:gap-20">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+        <div class="basis-1/2 flex flex-col md:gap-8">
+          <h3 class="basis-1/2">
+            Providing Clear Visibility into Company Resources to Optimize Utilization and Planning
+          </h3>
+        </div>
+        <div class="basis-1/2 flex flex-col gap-6 md:gap-8">
+          <div class="basis-1/2 flex text-lg flex-col gap-4">
+            We believe that powerful software doesn't need to be complicated. By combining robust functionality with an
+            intuitive interface, Markular empowers energy businesses to enhance their operational efficiency without
+            compromising on capability.
+          </div>
+          <div class="basis-1/2 flex gap-6">
+            <div class="basis-1/2 flex flex-col gap-4">
+              <Icon name="marktopright" class="text-[3rem] text-primary" />
+              <h6>Streamline HR Management</h6>
+              <p class="text-base">
+                Simplifying personnel-related tasks to save time and reduce administrative burden.
+              </p>
+            </div>
+            <div class="basis-1/2 flex flex-col gap-4">
+              <Icon name="marktopright" class="text-[3rem] text-primary" />
+              <h6>Efficient Resource Allocation</h6>
+              <p class="text-base">Enabling precise coordination of personnel and assets across projects and sites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={576}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout>
+    <div class="flex flex-col gap-6 md:gap-20">
+      <div class="flex flex-col md:w-[48rem] gap-4 self-center text-center">
+        <p class="font-bold text-base">Innovative</p>
+        <h2>Meet Our Team</h2>
+        <p class="text-lg">Get to know the leaders behind Markular's success</p>
+      </div>
+      <div class="grid md:grid-cols-3 md:gap-x-12 gap-y-3 md:gap-y-16">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <Image
+            class="w-full"
+            widths={[400, 768, 1024, 2040]}
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={1024}
+            height={1024}
+            src="~/assets/images/control_room.png"
+            alt="Person 1"
+          />
+          <div class="flex flex-col md:gap-1 text-center">
+            <div>
+              <h5>Frode Fuglestad</h5>
+              <p class="text-lg">CEO/Senior Engineer</p>
+            </div>
+            <p>Frode Fuglestad is a visionary leader with extensive experience in the software industry.</p>
+          </div>
+          <div class="p-2">
+            <ul class="flex justify-center">
+              <li>
+                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:gap-6">
+          <Image
+            class="w-full"
+            widths={[400, 768, 1024, 2040]}
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={1024}
+            height={1024}
+            src="~/assets/images/control_room.png"
+            alt="Person 1"
+          />
+          <div class="flex flex-col md:gap-1 text-center">
+            <div>
+              <h5>Fabriece Sumuni</h5>
+              <p class="text-lg">CTO/Senior Engineer</p>
+            </div>
+            <p>Fabriece Sumuni is a visionary leader with extensive experience in the software industry.</p>
+          </div>
+          <div class="p-2">
+            <ul class="flex justify-center">
+              <li>
+                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:gap-6">
+          <Image
+            class="w-full"
+            widths={[400, 768, 1024, 2040]}
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={1024}
+            height={1024}
+            src="~/assets/images/control_room.png"
+            alt="Person 1"
+          />
+          <div class="flex flex-col md:gap-1 text-center">
+            <div>
+              <h5>Daniel Buckley</h5>
+              <p class="text-lg">COO</p>
+            </div>
+            <p>Daniel Bucklet is a visionary leader with extensive experience in the software industry.</p>
+          </div>
+          <div class="p-2">
+            <ul class="flex justify-center">
+              <li>
+                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      container: 'md:py-20',
+    }}
+  >
+    <div class="flex flex-col items-center md:gap-6">
+      <p class="text-lg font-bold text-center md:w-[35rem]">Trusted by top industry leaders for exceptional results</p>
+      <div class="flex gap-4 md:gap-6 py-4 md:py-12">
+        <Image
+          class=""
+          width={120}
+          height={50}
+          widths={[400, 768]}
+          layout="fixed"
+          src="~/assets/images/weatherford.png"
+          alt="Weatherford logo"
+        />
+
+        <Image
+          class=""
+          width={145}
+          height={50}
+          widths={[400, 768]}
+          layout="fixed"
+          src="~/assets/images/archer.png"
+          alt="archer logo"
+        />
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      container: '',
+    }}
+  >
+    <div class="flex flex-col md:flex-row">
+      <div class="basis-1/2 flex flex-col py-3 md:p-12 gap-3 md:gap-6">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <h2 class="">Markular: Your Trusted Partner Innovating the Energy Sector</h2>
+          <p class="text-lg">
+            Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
+            resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your business
+            forward.
+          </p>
+        </div>
+        <div>
+          <Button variant="primary" text="Learn More" class="text-base" />
+        </div>
+      </div>
+      <div class="basis-1/2 flex items-center md:py-12">
+        <Image
+          class="min-w-full h-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
 </Layout>
