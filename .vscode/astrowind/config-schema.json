@@ -102,7 +102,7 @@
           "required": ["handle", "site", "cardType"]
         }
       },
-      "required": ["title", "description", "robots", "openGraph", "twitter"]
+      "required": ["title", "description", "robots", "openGraph"]
     },
     "i18n": {
       "type": "object",

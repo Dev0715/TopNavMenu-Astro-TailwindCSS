@@ -2,6 +2,8 @@
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
+import SnakeGame from '~/components/games/SnakeGame.astro';
+
 const title = `Error 404`;
 ---
 
@@ -15,9 +17,12 @@ const title = `Error 404`;
         </h2>
         <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
+          But don't worry, you can find plenty of other things on our homepage.
         </p>
         <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+      </div>
+      <div id="game-container" class="mt-8 w-full flex justify-center">
+        <SnakeGame />
       </div>
     </div>
   </section>

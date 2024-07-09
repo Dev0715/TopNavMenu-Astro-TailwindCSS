@@ -1,4 +1,7 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import {
+  getPermalink,
+  // getBlogPermalink, getAsset
+} from './utils/permalinks';
 
 const CASE_STUDIES = 'Case Studies';
 const ABOUT_US = 'About Us';
@@ -195,7 +198,7 @@ export const footerData = {
   ],
   secondaryLinks: [
     // { text: 'Address', href: getPermalink('/terms') },
-    // { text: 'Terms', href: getPermalink('/terms') },
+    { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
