@@ -1,8 +1,9 @@
 ---
+import SectionLayout from '~/layouts/SectionLayout.astro';
+
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 import { twMerge } from 'tailwind-merge';
-// import Background from '~/components/ui/Background.astro';
 
 import type { HeroCollage as Props } from '~/types';
 
@@ -17,9 +18,6 @@ const {
 
   classes = {},
   isReversed = false,
-
-  id,
-  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
 const { container: containerClass = '' } = classes;
@@ -28,100 +26,40 @@ const firstColumn = Array.isArray(images) && images.filter((_, index) => index %
 const secondColumn = Array.isArray(images) && images.filter((_, index) => index % 2 === 1);
 ---
 
-<section class={twMerge('relative md:-mt-[76px] not-prose', containerClass)} {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <slot name="bg">
-      {bg ? <Fragment set:html={bg} /> : null}
-    </slot>
-  </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div
-      class={twMerge(
-        'py-12 md:py-20 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8',
-        isReversed ? 'lg:flex-row-reverse' : ''
-      )}
-    >
-      <div class="basis-1/2 flex flex-col gap-3 md:gap-4 text-start mx-auto">
-        {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class="text-[2.5rem]/[3rem] md:text-6xl font-semibold font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto lg:max-w-none">
-          {subtitle && <p class="text-xl text-primary dark:text-slate-300" set:html={subtitle} />}
-
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row gap-[1.5rem] mt-10">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex my-auto">
-                      <Button {...(action || {})} class="w-full text-base" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
+<SectionLayout
+  classes={{
+    container: twMerge(containerClass, 'py-0 md:py-0'),
+  }}
+>
+  <div class={twMerge('flex flex-col md:flex-row gap-12 md:gap-20', isReversed ? 'md:flex-row-reverse' : '')}>
+    <div class="basis-1/2 flex flex-col justify-center">
+      <div class="flex flex-col gap-3 md:gap-6">
+        {tagline && <p class="text-base uppercase" set:html={tagline} />}
+        {title && <h1 set:html={title} />}
+        <div class="">
+          {subtitle && <p class="text-lg" set:html={subtitle} />}
         </div>
+        {
+          Array.isArray(actions) ? (
+            actions.map((action) => (
+              <div class="flex mt-10 md:mt-4 md:mb-0">
+                <Button {...(action || {})} class="text-base" />
+              </div>
+            ))
+          ) : (
+            <Fragment set:html={actions} />
+          )
+        }
         {content && <Fragment set:html={content} />}
       </div>
-      <div class="basis-1/2 mt-12">
-        <!-- <div class="grid grid-cols-2 gap-8 bg-red-400">
+    </div>
+    <div class="basis-1/2">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="grid gap-4">
           {
-            Array.isArray(images) &&
-              images.map((image, index) => {
-                return (
-                  <Image
-                    class={twMerge('w-full mb-4', (index / 2) % 0 ? 'aspect-square' : 'aspect-video')}
-                    widths={[400, 768, 1024, 2040]}
-                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                    loading="eager"
-                    width={600}
-                    height={600}
-                    {...image}
-                  />
-                );
-              })
-          }
-        </div> -->
-        <div class="grid grid-cols-2 gap-4">
-          <div class="grid gap-4">
-            {
-              Array.isArray(firstColumn) &&
-                firstColumn.map((image) => (
-                  <div>
-                    <Image
-                      class={twMerge('w-full')}
-                      widths={[400, 768, 1024, 2040]}
-                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                      loading="eager"
-                      width={600}
-                      height={600}
-                      {...image}
-                    />
-                  </div>
-                ))
-            }
-          </div>
-          <div class="grid gap-4">
-            {
-              Array.isArray(secondColumn) &&
-                secondColumn.map((image) => (
+            Array.isArray(firstColumn) &&
+              firstColumn.map((image) => (
+                <div>
                   <Image
                     class={twMerge('w-full')}
                     widths={[400, 768, 1024, 2040]}
@@ -131,11 +69,39 @@ const secondColumn = Array.isArray(images) && images.filter((_, index) => index 
                     height={600}
                     {...image}
                   />
-                ))
-            }
-          </div>
+                </div>
+              ))
+          }
+        </div>
+        <div class="grid gap-4">
+          {
+            Array.isArray(secondColumn) &&
+              secondColumn.map((image) => (
+                <Image
+                  class={twMerge('w-full')}
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={600}
+                  height={600}
+                  {...image}
+                />
+              ))
+          }
         </div>
       </div>
     </div>
   </div>
-</section>
+</SectionLayout>
+
+<!-- <section class={twMerge('relative md:-mt-[76px] not-prose', containerClass)} {...id ? { id } : {}}>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <slot name="bg">
+      {bg ? <Fragment set:html={bg} /> : null}
+    </slot>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    
+  </div>
+</section> -->
