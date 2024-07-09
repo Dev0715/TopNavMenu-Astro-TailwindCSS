@@ -21,7 +21,7 @@ export const headerData = {
         },
         {
           text: 'Logistics & Equipment Rental',
-          href: getPermalink('/apps/rentals'),
+          href: getPermalink('/apps/tools'),
         },
         {
           text: 'Time Tracker',
@@ -29,7 +29,7 @@ export const headerData = {
         },
         {
           text: 'Competency Manager',
-          href: getPermalink('/apps/competency'),
+          href: getPermalink('/apps/skills'),
         },
       ],
     },
@@ -149,9 +149,9 @@ export const footerData = {
       links: [
         { text: 'HR Manager', href: getPermalink('/apps/people') },
         { text: 'Personnel Planner', href: getPermalink('/apps/planner') },
-        { text: 'Logistics & Equipment Rental', href: getPermalink('/apps/rental') },
+        { text: 'Logistics & Equipment Rental', href: getPermalink('/apps/tools') },
         { text: 'Time Tracker', href: getPermalink('/apps/time-tracker') },
-        { text: 'Competency Manager', href: getPermalink('/apps/compentency') },
+        { text: 'Competency Manager', href: getPermalink('/apps/skills') },
       ],
     },
 
