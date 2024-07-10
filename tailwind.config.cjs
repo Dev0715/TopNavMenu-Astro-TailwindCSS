@@ -6,6 +6,24 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,json,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      animation: {
+        'gradient-br': 'gradient-br 5s ease infinite',
+      },
+      keyframes: {
+        'gradient-br': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'top left',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'bottom right',
+          },
+        },
+      },
+      backgroundImage: (_) => ({
+        'gradient-to-hero': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      }),
       colors: {
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',

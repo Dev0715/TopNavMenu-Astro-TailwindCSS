@@ -15,7 +15,6 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <HeroCollage
-    classes={{ container: '' }}
     actions={[{ variant: 'primary', text: 'Learn More', href: '#' }]}
     images={[
       {
@@ -65,7 +64,7 @@ const metadata = {
     </Fragment>
   </HeroCollage>
 
-  <SectionLayout classes={{ container: '' }}>
+  <SectionLayout classes={{ background: 'bg-gradient-to-b from-myellow-100 via-white to-white' }}>
     <div class="flex flex-col gap-12 md:gap-20">
       <div class="md:w-[48rem]">
         <p class="font-bold text-base mb-4">Comprehensive Time Tracking</p>
@@ -104,11 +103,7 @@ const metadata = {
           </div>
         </div>
         <div>
-          <Button
-            variant="primary"
-            text="Learn More"
-            class="mt-10 md:mt-4 md:mb-0 text-base bg-transparent text-primary"
-          />
+          <Button variant="secondary" text="Learn More" class="mt-10 md:mt-4 md:mb-0 text-base" />
         </div>
       </div>
     </div>
@@ -116,7 +111,7 @@ const metadata = {
 
   <SectionLayout
     classes={{
-      container: '',
+      background: 'bg-white',
     }}
   >
     <div class="flex flex-col md:flex-row gap-6 md:gap-20">
@@ -147,7 +142,7 @@ const metadata = {
 
   <SectionLayout
     classes={{
-      container: '',
+      background: 'bg-white',
     }}
   >
     <div class="flex flex-col md:flex-row gap-6 md:gap-20">
@@ -176,11 +171,7 @@ const metadata = {
     </div>
   </SectionLayout>
 
-  <SectionLayout
-    classes={{
-      container: '',
-    }}
-  >
+  <SectionLayout>
     <div class="flex flex-col gap-6 md:gap-20">
       <div class="flex flex-col md:flex-row gap-6 md:gap-20">
         <div class="basis-1/2 flex flex-col md:gap-8">
@@ -209,7 +200,7 @@ const metadata = {
 
   <SectionLayout
     classes={{
-      container: '',
+      background: 'bg-white',
     }}
   >
     <div class="flex flex-col md:flex-row gap-6 md:gap-20">
@@ -240,11 +231,7 @@ const metadata = {
           </div>
         </div>
         <div>
-          <Button
-            variant="primary"
-            text="Learn More"
-            class="my-10 md:mt-4 md:mb-0 text-base bg-transparent text-primary"
-          />
+          <Button variant="secondary" text="Learn More" class="my-10 md:mt-4 md:mb-0 text-base" />
         </div>
       </div>
 

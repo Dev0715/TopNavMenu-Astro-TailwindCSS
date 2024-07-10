@@ -14,7 +14,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <SectionLayout
     classes={{
-      background: 'bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100',
+      background: 'bg-gradient-to-hero from-myellow-300 via-myellow-100 to-myellow-100 animate-gradient-br',
       container: 'pt-9',
     }}
   >
@@ -76,7 +76,7 @@ const metadata = {
           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
           loading="eager"
           width={640}
-          height={1024}
+          height={640}
           src="~/assets/images/rig.png"
           alt="Person crossing a rig bridge"
         />
@@ -97,7 +97,7 @@ const metadata = {
           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
           loading="eager"
           width={640}
-          height={1024}
+          height={640}
           src="~/assets/images/office-hang.png"
           alt="2 people hanging out in the office"
         />
@@ -221,7 +221,7 @@ const metadata = {
 
       <div class="basis-1/2 w-full flex flex-col justify-center">
         <Image
-          class="min-w-full min-h-full"
+          class="min-w-full"
           widths={[400, 768, 1024, 2040]}
           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
           loading="eager"

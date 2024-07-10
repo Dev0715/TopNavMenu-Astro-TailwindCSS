@@ -102,130 +102,92 @@ const metadata = {
   </SectionLayout>
 
   <SectionLayout>
-    <div class="flex flex-col gap-6 md:gap-20">
+    <div class="flex flex-col gap-12 md:gap-20">
       <div class="flex flex-col md:w-[48rem] gap-4 self-center text-center">
         <p class="font-bold text-base">Innovative</p>
         <h2>Meet Our Team</h2>
         <p class="text-lg">Get to know the leaders behind Markular's success</p>
       </div>
-      <div class="grid md:grid-cols-3 md:gap-x-12 gap-y-3 md:gap-y-16">
-        <div class="flex flex-col gap-3 md:gap-6">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+        <div class="flex flex-col gap-3 md:gap-6 items-center">
           <Image
-            class="w-full"
+            class="rounded-full"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             loading="eager"
-            width={1024}
-            height={1024}
+            width={100}
+            height={100}
             src="~/assets/images/control_room.png"
             alt="Person 1"
           />
           <div class="flex flex-col md:gap-1 text-center">
             <div>
-              <h5>Frode Fuglestad</h5>
+              <p class="font-semibold text-xl">Frode Fuglestad</p>
               <p class="text-lg">CEO/Senior Engineer</p>
             </div>
             <p>Frode Fuglestad is a visionary leader with extensive experience in the software industry.</p>
           </div>
-          <div class="p-2">
-            <ul class="flex justify-center">
-              <li>
-                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
-                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul class="flex justify-center">
+            <li>
+              <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <div class="flex flex-col md:gap-6">
+        <div class="flex flex-col gap-3 md:gap-6 items-center">
           <Image
-            class="w-full"
+            class="rounded-full"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             loading="eager"
-            width={1024}
-            height={1024}
+            width={100}
+            height={100}
             src="~/assets/images/control_room.png"
             alt="Person 1"
           />
           <div class="flex flex-col md:gap-1 text-center">
             <div>
-              <h5>Fabriece Sumuni</h5>
+              <p class="font-semibold text-xl">Fabriece Sumuni</p>
               <p class="text-lg">CTO/Senior Engineer</p>
             </div>
             <p>Fabriece Sumuni is a visionary leader with extensive experience in the software industry.</p>
           </div>
-          <div class="p-2">
-            <ul class="flex justify-center">
-              <li>
-                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
-                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul class="flex justify-center">
+            <li>
+              <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div class="flex flex-col md:gap-6">
+        <div class="flex flex-col gap-3 md:gap-6 items-center">
           <Image
-            class="w-full"
+            class="rounded-full"
             widths={[400, 768, 1024, 2040]}
             sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
             loading="eager"
-            width={1024}
-            height={1024}
+            width={100}
+            height={100}
             src="~/assets/images/control_room.png"
             alt="Person 1"
           />
           <div class="flex flex-col md:gap-1 text-center">
             <div>
-              <h5>Daniel Buckley</h5>
+              <p class="font-semibold text-xl">Daniel Buckley</p>
               <p class="text-lg">COO</p>
             </div>
-            <p>Daniel Bucklet is a visionary leader with extensive experience in the software industry.</p>
+            <p>Daniel Buckley is a visionary leader with extensive experience in the software industry.</p>
           </div>
-          <div class="p-2">
-            <ul class="flex justify-center">
-              <li>
-                <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
-                  <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul class="flex justify-center">
+            <li>
+              <a class="text-white" aria-label="LinkedIn" href="" target="_blank">
+                <Icon name="tabler:brand-linkedin" class="w-6 h-6" />
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </SectionLayout>
-
-  <SectionLayout
-    classes={{
-      container: 'md:py-20',
-    }}
-  >
-    <div class="flex flex-col items-center md:gap-6">
-      <p class="text-lg font-bold text-center md:w-[35rem]">Trusted by top industry leaders for exceptional results</p>
-      <div class="flex gap-4 md:gap-6 py-4 md:py-12">
-        <Image
-          class=""
-          width={120}
-          height={50}
-          widths={[400, 768]}
-          layout="fixed"
-          src="~/assets/images/weatherford.png"
-          alt="Weatherford logo"
-        />
-
-        <Image
-          class=""
-          width={145}
-          height={50}
-          widths={[400, 768]}
-          layout="fixed"
-          src="~/assets/images/archer.png"
-          alt="archer logo"
-        />
       </div>
     </div>
   </SectionLayout>
