@@ -9,7 +9,7 @@ const ABOUT_US = 'About Us';
 export const headerData = {
   links: [
     {
-      text: 'Operational Management Suite',
+      text: 'Solutions',
       links: [
         {
           text: 'HR Manager',
@@ -20,16 +20,16 @@ export const headerData = {
           href: getPermalink('/apps/planner'),
         },
         {
-          text: 'Logistics & Equipment Rental',
-          href: getPermalink('/apps/tools'),
-        },
-        {
           text: 'Time Tracker',
           href: getPermalink('/apps/time-tracker'),
         },
         {
           text: 'Competency Manager',
           href: getPermalink('/apps/skills'),
+        },
+        {
+          text: 'Logistics & Equipment Rental',
+          href: getPermalink('/apps/tools'),
         },
       ],
     },
@@ -149,9 +149,9 @@ export const footerData = {
       links: [
         { text: 'HR Manager', href: getPermalink('/apps/people') },
         { text: 'Personnel Planner', href: getPermalink('/apps/planner') },
-        { text: 'Logistics & Equipment Rental', href: getPermalink('/apps/tools') },
         { text: 'Time Tracker', href: getPermalink('/apps/time-tracker') },
         { text: 'Competency Manager', href: getPermalink('/apps/skills') },
+        { text: 'Logistics & Equipment Rental', href: getPermalink('/apps/tools') },
       ],
     },
 
