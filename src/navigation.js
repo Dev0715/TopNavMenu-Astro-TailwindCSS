@@ -155,16 +155,6 @@ export const footerData = {
       ],
     },
 
-    {
-      title: '',
-      links: [
-        { text: CASE_STUDIES, href: getPermalink('/case-studies') },
-
-        // { text: 'Solutions', href: '#' },
-        // { text: 'Resources', href: '#' },
-        // { text: 'Pricing', href: '#' },
-      ],
-    },
     // {
     //   title: 'Platform',
     //   links: [
@@ -177,6 +167,7 @@ export const footerData = {
       links: [
         { text: 'Contact Us', href: getPermalink('/contact') },
         { text: ABOUT_US, href: getPermalink('/about') },
+        { text: CASE_STUDIES, href: getPermalink('/case-studies') },
         // { text: 'FAQ', href: '#' },
         // { text: 'Demo', href: '#' },
         // { text: 'Careers', href: '#' },
