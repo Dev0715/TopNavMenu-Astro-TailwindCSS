@@ -1,12 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
+import SectionLayout from '~/layouts/SectionLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Markular',
@@ -15,133 +12,231 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    actions={[{ variant: 'primary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/control_room.png', alt: 'Person in a control room' }}
-  >
-    <Fragment slot="title"> Streamline HR, Scheduling, and Resource Coordination with Markular</Fragment>
-
-    <Fragment slot="subtitle">
-      Say goodbye to fragmented systems, multiple spreadsheets, and manual reporting. With Markular, you get an
-      intuitive system that streamlines your processes while minimizing errors. Managing your resources has never been
-      easier! Empower your business with Markular’s comprehensive solution for seamless HR and operations management.
-    </Fragment>
-  </Hero>
-
-  <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/rig.png', alt: 'Person crossing a rig bridge' }}
+  <SectionLayout
     classes={{
-      container: 'bg-gradient-to-b from-myellow-100 via-white to-white',
+      container: 'pt-9 bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100',
     }}
   >
-    <Fragment slot="tagline">
-      <div>
-        <Icon name="marktopright" class="text-[5rem] text-primary" />
-      </div></Fragment
-    >
-    <Fragment slot="title"> <p>Transform Your Workforce Planning and Management</p></Fragment>
+    <div class="flex flex-col items-center gap-12 md:gap-20">
+      <div class="md:w-[48rem] flex flex-col gap-2 md:gap-6 items-start md:items-center">
+        <div class="flex flex-col gap-4 md:gap-6 text-start md:text-center">
+          <h1>Streamline HR, Scheduling, and Resource Coordination with Markular</h1>
 
-    <Fragment slot="subtitle">
-      <p>
-        Struggling with fragmented systems and manual reporting? Markular streamlines HR and operations, unifying
-        employee management, shift planning, and time tracking. Simplify your business processes with our intuitive
-        platform, designed for medium to large enterprises.
-      </p>
-    </Fragment>
-  </Hero2>
+          <p class="text-lg">
+            Say goodbye to fragmented systems, multiple spreadsheets, and manual reporting. With Markular, you get an
+            intuitive system that streamlines your processes while minimizing errors. Managing your resources has never
+            been easier! Empower your business with Markular’s comprehensive solution for seamless HR and operations
+            management.
+          </p>
+        </div>
+        <div>
+          <Button variant="primary" text="Learn More" href="#" class="mt-4 md:mb-0 text-base" />
+        </div>
+      </div>
+      <Image
+        class="min-w-full"
+        widths={[400, 768, 1024, 2040]}
+        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+        loading="eager"
+        width={600}
+        height={600}
+        src="~/assets/images/control_room.png"
+        alt="Control room with a person in it"
+      />
+    </div>
+  </SectionLayout>
 
-  <Hero2
-    isReversed={true}
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
-    image={{ src: '~/assets/images/office-hang.png', alt: '2 people hanging out in the office' }}
+  <SectionLayout
     classes={{
-      container: 'bg-white',
+      container: 'bg-gradient-to-b from-myellow-100 via-myellow-50 to-white',
     }}
   >
-    <Fragment slot="tagline">
-      <div>
-        <Icon name="markperson" class="text-[5rem] text-primary" />
-      </div></Fragment
-    >
-    <Fragment slot="title"> <p>Move Your Workforce into the Digital Future with Markular</p></Fragment>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div class="basis-1/2 flex flex-col justify-center">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <div class="flex flex-col gap-5 md:gap-6">
+            <div>
+              <Icon name="marktopright" class="text-[5rem] text-primary" />
+            </div>
+            <div class="flex flex-col gap-5 md:gap-6">
+              <h2>Transform Your Workforce Planning and Management</h2>
+              <p class="text-lg">
+                Struggling with fragmented systems and manual reporting? Markular streamlines HR and operations,
+                unifying employee management, shift planning, and time tracking. Simplify your business processes with
+                our intuitive platform, designed for medium to large enterprises.
+              </p>
+            </div>
+          </div>
+          <div>
+            <Button variant="secondary" text="Learn More" class="mt-4 md:mb-0 text-base" />
+          </div>
+        </div>
+      </div>
 
-    <Fragment slot="subtitle">
-      <p>
-        Digitalizing your planning and operational processes requires transforming how your team works. Markular helps
-        you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into action,
-        ensuring perfect execution.
-      </p>
-    </Fragment>
-  </Hero2>
+      <div class="basis-1/2 flex justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={640}
+          height={640}
+          src="~/assets/images/rig.png"
+          alt="Person crossing a rig bridge"
+        />
+      </div>
+    </div>
+  </SectionLayout>
 
-  <Features2
-    classes={{
-      container:
-        'px-5 md:px-16 py-16 md:py-28 w-full bg-gradient-to-br from-myellow-900 via-myellow-950 to-myellow-950',
-    }}
-    title="Team Efficiency and Productivy"
-    subtitle="Optimize your business with a platform designed to streamline team management and boost productivity."
-    tagline="Maximize"
-    items={[
-      {
-        title: 'Efficient Resource Allocation',
-        description: 'Optimize resource allocation with precision.',
-        icon: 'markright',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-      {
-        title: 'Time Tracking and HR Tools',
-        description: 'Simplify performance management with powerful HR tools.',
-        icon: 'markup',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-      {
-        title: 'Competency Management',
-        description: 'Ensure certificates are up to date with comprehensive overview.',
-        icon: 'marktopright',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-    ]}
-  />
-
-  <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/meeting-room.png', alt: 'people in a meeting room' }}
+  <SectionLayout
     classes={{
       container: 'bg-white',
     }}
   >
-    <Fragment slot="tagline"> <div>Innovative</div></Fragment>
-    <Fragment slot="title"> <div>Experience the Power of Markular's Cutting-Edge Solutions</div></Fragment>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div class="basis-1/2 flex justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={640}
+          height={640}
+          src="~/assets/images/office-hang.png"
+          alt="2 people hanging out in the office"
+        />
+      </div>
 
-    <Fragment slot="subtitle">
-      <div>
-        Markular's operational management suite is transforming operations in the oil and gas sector. Our platform
-        integrates seamlessly with your existing systems, delivering measurable improvements across your entire
-        organization.
+      <div class="basis-1/2 flex flex-col justify-center">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <div class="flex flex-col gap-5 md:gap-6">
+            <div>
+              <Icon name="markperson" class="text-[5rem] text-primary" />
+            </div>
+            <div class="flex flex-col gap-5 md:gap-6">
+              <h2>Move Your Workforce into the Digital Future with Markular</h2>
+              <p class="text-lg">
+                Digitalizing your planning and operational processes requires transforming how your team works. Markular
+                helps you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into
+                action, ensuring perfect execution.
+              </p>
+            </div>
+          </div>
+          <div>
+            <Button variant="secondary" text="Learn More" class="mt-4 md:mb-0 text-base" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
 
-        <h2 class="font-semibold text-4xl/[2.7rem] md:text-5xl/[3.6rem] mt-6 md:mt-8">
-          Increase operational efficiency by 20%
-        </h2>
-        <p class="mt-2">
-          Companies using integrated management solutions such as Markular, report up to 20% improvement in operational
-          efficiency.
+  <SectionLayout
+    classes={{
+      container: 'text-white bg-gradient-to-br from-myellow-900 via-myellow-900 to-myellow-950',
+    }}
+  >
+    <div class="flex flex-col gap-12">
+      <div class="text-center md:w-[48rem] self-center">
+        <p class="font-bold text-base mb-3 md:mb-4">Maximize</p>
+        <h2 class="mb-5 md:mb-6 text-white">Team Efficiency and Productivy</h2>
+        <p class="text-base">
+          Optimize your business with a platform designed to streamline team management and boost productivity.
         </p>
       </div>
-    </Fragment>
-  </Hero2>
+      <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="markright" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Efficient Resource Allocation</h3>
+              <p class="text-base">Optimize resource allocation with precision.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="#" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="markup" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Time Tracking and HR Tools</h3>
+              <p class="text-base">Simplify performance management with powerful HR tools.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="#" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="marktopright" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Competency Management</h3>
+              <p class="text-base">Ensure certificates are up to date with comprehensive overview.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="#" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      container: 'bg-white',
+    }}
+  >
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div class="basis-1/2 flex flex-col gap-5 md:gap-6">
+        <div class="flex flex-col gap-4 md:gap-8">
+          <div>
+            <p class="font-bold text-base mb-4">Innovative</p>
+            <h2 class="mb-6">Experience the Power of Markular's Cutting-Edge Solutions</h2>
+            <p class="text-lg">
+              Markular's operational management suite is transforming operations in the oil and gas sector. Our platform
+              integrates seamlessly with your existing systems, delivering measurable improvements across your entire
+              organization.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2>Increase operational efficiency by 20%</h2>
+            <p class="text-base">
+              Companies using integrated management solutions such as Markular, report up to 20% improvement in
+              operational efficiency.
+            </p>
+          </div>
+        </div>
+        <div>
+          <Button variant="secondary" text="Learn More" class="mt-4 md:mb-0 text-base" />
+        </div>
+      </div>
+
+      <div class="basis-1/2 w-full xl:max-w-[75rem] flex flex-col justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={640}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
 
   <section class=`bg-white mx-auto sm:pb-[14rem] relative not-prose`>
     <div class="relative max-w-sm md:max-w-4xl mx-auto px-6 md:px-4 py-6">
@@ -173,44 +268,37 @@ const metadata = {
     </div>
   </section>
 
-  <section class="bg-accent py-16 relative md:-mt-[76px] not-prose">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-      <div class="md:flex">
-        <div class="basis-1/2 bg-secondary py-8 text-left px-8 mx-auto">
-          <h1 class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200">
-            Markular: Your Trusted Partner Innovating the Energy Sector
-          </h1>
-
-          <div class="max-w-3xl mx-auto lg:max-w-none">
-            <p class="text-xl text-muted mb-6 dark:text-slate-300">
-              Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
-              resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your
-              business forward.
-            </p>
-
-            <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
-              <div class="flex my-auto">
-                <Button class="w-full text-base bg-white">Learn More</Button>
-              </div>
-            </div>
-          </div>
+  <SectionLayout
+    classes={{
+      container: '',
+    }}
+  >
+    <div class="flex flex-col md:flex-row bg-secondary">
+      <div class="basis-1/2 flex flex-col p-8 md:p-12 gap-3 md:gap-6">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <h2 class="">Renewing the Energy Sector</h2>
+          <p class="text-lg">
+            Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
+            resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your business
+            forward.
+          </p>
         </div>
-        <div class="basis-1/2">
-          <div class="relative m-auto max-w-5xl">
-            <Image
-              class="mx-auto w-full"
-              widths={[400, 768, 1024, 2040]}
-              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-              loading="eager"
-              width={600}
-              height={600}
-              src="~/assets/images/man_sunset.png"
-              alt="people in a meeting room"
-            />
-          </div>
+        <div>
+          <Button variant="primary" text="Learn More" class="mt-4 md:mb-0 text-base bg-white text-primary" />
         </div>
       </div>
+      <div class="basis-1/2 flex items-center">
+        <Image
+          class="min-w-full h-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={640}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
     </div>
-  </section>
+  </SectionLayout>
 </Layout>

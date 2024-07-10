@@ -12,8 +12,8 @@ const { classes = {} } = Astro.props;
 const { container: containerClass = '' } = classes;
 ---
 
-<section class="not-prose max-w-7xl mx-auto">
-  <div class={twMerge('max-w-full px-6 pt-9 pb-16 md:px-16 md:py-28', containerClass)}>
+<section class="not-prose max-w-[1440px] mx-auto">
+  <div class={twMerge('max-w-full px-6 py-16 pb-16 md:px-16 md:py-28', containerClass)}>
     <div class="pt-0 pointer-events-none"></div>
     <slot />
   </div>
