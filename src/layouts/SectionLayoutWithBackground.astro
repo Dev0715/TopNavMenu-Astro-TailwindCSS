@@ -1,0 +1,39 @@
+---
+import { twMerge } from 'tailwind-merge';
+import { BackgroundImage } from 'astro-imagetools/components';
+
+export interface Props {
+  classes?: {
+    container?: string;
+    background?: string;
+  };
+  blur?: number | boolean;
+  src: string;
+  preload?: 'jpg' | 'webp' | 'jpeg' | 'png';
+}
+
+const { classes = {}, blur, src, preload } = Astro.props;
+
+const { container: containerClass = '' } = classes;
+---
+
+<!-- <section class={twMerge('not-prose', background)}> -->
+<BackgroundImage
+  src={src}
+  backgroundSize="cover"
+  tag="section"
+  format={['webp', 'jpg']}
+  blur={blur ?? false}
+  preload={preload ?? 'jpg'}
+  attributes={{
+    link: {
+      fetchpriority: 'high',
+    },
+  }}
+>
+  <div class={twMerge('max-w-[1440px] mx-auto px-6 py-16 pb-16 md:px-16 md:py-28', containerClass)}>
+    <div class="pt-0 pointer-events-none"></div>
+    <slot />
+  </div>
+</BackgroundImage>
+<!-- </section> -->

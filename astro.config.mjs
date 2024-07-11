@@ -9,6 +9,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
+import { astroImageTools } from 'astro-imagetools';
 
 import astrowind from './vendor/integration';
 
@@ -33,6 +34,7 @@ export default defineConfig({
     }),
     sitemap(),
     mdx(),
+    astroImageTools,
     icon({
       include: {
         tabler: ['*'],

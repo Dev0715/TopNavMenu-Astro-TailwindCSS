@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
 import SectionLayout from '~/layouts/SectionLayout.astro';
+import SectionLayoutWithBackground from '~/layouts/SectionLayoutWithBackground.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -16,7 +17,6 @@ const metadata = {
   <SectionLayout
     classes={{
       background: 'bg-gradient-to-hero from-myellow-300 via-myellow-100 to-myellow-100 animate-gradient-br',
-      container: 'pt-9',
     }}
   >
     <div class="flex flex-col items-center gap-12 md:gap-20">
@@ -31,14 +31,13 @@ const metadata = {
         </div>
       </div>
       <Image
-        class="min-w-full"
+        class="relative h-[197px] md:h-[655px] min-w-full object-cover"
         widths={[400, 768, 1024, 2040]}
         sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
         loading="eager"
-        width={600}
-        height={600}
-        src="~/assets/images/control_room.png"
-        alt="Control room with a person in it"
+        width={800}
+        src="~/assets/images/oil_rig_sunset.jpg"
+        alt="Oil rig at sunset"
       />
     </div>
   </SectionLayout>
@@ -48,7 +47,7 @@ const metadata = {
       background: 'bg-gradient-to-b from-myellow-100 via-myellow-100 to-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-12 md:gap-20">
       <div class="basis-1/2 flex flex-col justify-center">
         <div class="flex flex-col gap-3 md:gap-6">
           <div class="flex flex-col gap-5 md:gap-6">
@@ -78,8 +77,8 @@ const metadata = {
           loading="eager"
           width={640}
           height={640}
-          src="~/assets/images/rig.png"
-          alt="Person crossing a rig bridge"
+          src="~/assets/images/guy_pointing_at_wrist_watch.jpg"
+          alt="Guy pointing at wrist watch"
         />
       </div>
     </div>
@@ -90,7 +89,7 @@ const metadata = {
       background: 'bg-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-12 md:gap-20">
       <div class="basis-1/2 flex justify-center h-[40rem]">
         <Image
           class="min-w-full"
@@ -99,8 +98,8 @@ const metadata = {
           loading="eager"
           width={640}
           height={640}
-          src="~/assets/images/office-hang.png"
-          alt="2 people hanging out in the office"
+          src="~/assets/images/project_schedule_week_visualization.jpeg"
+          alt="Project schedule week visualization"
         />
       </div>
 
@@ -127,9 +126,12 @@ const metadata = {
     </div>
   </SectionLayout>
 
-  <SectionLayout
+  <!-- <div class="flex flex-col gap-12"> -->
+  <SectionLayoutWithBackground
+    src="src/assets/images/oil_rig_sunset.jpg"
+    preload="jpg"
     classes={{
-      background: 'text-white bg-gradient-to-br from-myellow-900 via-myellow-900 to-myellow-950',
+      container: 'text-white',
     }}
   >
     <div class="flex flex-col gap-12">
@@ -140,8 +142,8 @@ const metadata = {
           Optimize your business with a platform designed to streamline team management and boost productivity.
         </p>
       </div>
-      <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+      <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
           <div class="flex flex-col gap-5">
             <div>
               <Icon name="markright" class="text-[3rem] text-secondary" />
@@ -156,7 +158,7 @@ const metadata = {
             <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
           </div>
         </div>
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
           <div class="flex flex-col gap-5">
             <div>
               <Icon name="markup" class="text-[3rem] text-secondary" />
@@ -171,7 +173,7 @@ const metadata = {
             <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
           </div>
         </div>
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950">
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
           <div class="flex flex-col gap-5">
             <div>
               <Icon name="marktopright" class="text-[3rem] text-secondary" />
@@ -188,14 +190,14 @@ const metadata = {
         </div>
       </div>
     </div>
-  </SectionLayout>
+  </SectionLayoutWithBackground>
 
   <SectionLayout
     classes={{
       background: 'bg-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-12 md:gap-20">
       <div class="basis-1/2 flex flex-col gap-5 md:gap-6">
         <div class="flex flex-col gap-4 md:gap-8">
           <div>
@@ -228,8 +230,8 @@ const metadata = {
           loading="eager"
           width={640}
           height={640}
-          src="~/assets/images/control_room.png"
-          alt="Person in a control room"
+          src="~/assets/images/rig_in_ocean_long_shot.jpeg"
+          alt="Over exposed long shot of rig in the ocean"
         />
       </div>
     </div>
