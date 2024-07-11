@@ -126,7 +126,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         actions?.length ? (
           <span class="hidden md:flex">
             {actions.map((btnProps) => (
-              <Button {...btnProps} class="text-base w-auto" />
+              <Button {...btnProps} class="text-base px-5 py-2" />
             ))}
           </span>
         ) : (

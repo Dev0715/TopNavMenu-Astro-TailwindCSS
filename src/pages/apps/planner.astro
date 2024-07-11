@@ -7,6 +7,7 @@ import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
 import HeroCollage from '~/components/widgets/HeroCollage.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Personnel Planner',
@@ -201,43 +202,45 @@ const metadata = {
   >
     <div class="flex flex-col md:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
-        <div class="flex flex-col gap-4 md:gap-8">
+        <div class="flex-1 flex flex-col justify-center gap-3 md:gap-6">
+          <div class="flex flex-col gap-4 md:gap-8">
+            <div>
+              <p class="font-bold text-base mb-4">Comprehensive Reports, Travel Management, and Payroll Solutions</p>
+              <h2 class="mb-6">
+                Gain insights, streamline travel, and manage payroll efficiently with Markular’s integrated tools.
+              </h2>
+              <p class="text-lg">
+                Access a wide range of reports and analytics to monitor job performance, personnel utilization, and
+                project progress. Our detailed reporting tools provide real-time data, helping you make informed
+                decisions and optimize operations.
+              </p>
+            </div>
+            <div class="flex gap-6">
+              <div class="basis-1/2 flex flex-col gap-4">
+                <h6>Streamline Travel Management</h6>
+                <p class="text-base">
+                  Manage all aspects of travel for offshore personnel. Our travel management feature ensures that all
+                  travel-related tasks are handled efficiently and within budget.
+                </p>
+              </div>
+              <div class="basis-1/2 flex flex-col gap-4">
+                <h6>Efficient Payroll Management</h6>
+                <p class="text-base">
+                  Automate payroll processing with accurate and timely payments. Cost tracking integrated with
+                  timesheets for accuracy and minimum administrative workload.
+                </p>
+              </div>
+            </div>
+          </div>
           <div>
-            <p class="font-bold text-base mb-4">Comprehensive Reports, Travel Management, and Payroll Solutions</p>
-            <h2 class="mb-6">
-              Gain insights, streamline travel, and manage payroll efficiently with Markular’s integrated tools.
-            </h2>
-            <p class="text-lg">
-              Access a wide range of reports and analytics to monitor job performance, personnel utilization, and
-              project progress. Our detailed reporting tools provide real-time data, helping you make informed decisions
-              and optimize operations.
-            </p>
+            <Button variant="secondary" text="Learn More" class="my-10 md:mt-4 md:mb-0 text-base" />
           </div>
-          <div class="flex gap-6">
-            <div class="basis-1/2 flex flex-col gap-4">
-              <h6>Streamline Travel Management</h6>
-              <p class="text-base">
-                Manage all aspects of travel for offshore personnel. Our travel management feature ensures that all
-                travel-related tasks are handled efficiently and within budget.
-              </p>
-            </div>
-            <div class="basis-1/2 flex flex-col gap-4">
-              <h6>Efficient Payroll Management</h6>
-              <p class="text-base">
-                Automate payroll processing with accurate and timely payments. Cost tracking integrated with timesheets
-                for accuracy and minimum administrative workload.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <Button variant="secondary" text="Learn More" class="my-10 md:mt-4 md:mb-0 text-base" />
         </div>
       </div>
 
-      <div class="basis-1/2 w-full xl:max-w-[75rem] flex justify-center h-[40rem]">
+      <div class="basis-1/2 flex flex-col justify-center">
         <Image
-          class="min-w-full"
+          class="min-w-full h-[40rem]"
           widths={[400, 768, 1024, 2040]}
           sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
           loading="eager"
@@ -251,32 +254,6 @@ const metadata = {
   </SectionLayout>
 
   <SectionLayout>
-    <div class="flex flex-col md:flex-row bg-secondary">
-      <div class="basis-1/2 flex flex-col p-8 md:p-12 gap-3 md:gap-6">
-        <div class="flex flex-col gap-3 md:gap-6">
-          <h2 class="">Your Trusted Partner Innovating the Energy Sector</h2>
-          <p class="text-lg">
-            Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
-            resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your business
-            forward.
-          </p>
-        </div>
-        <div>
-          <Button variant="primary" text="Learn More" class="mt-4 md:mb-0 text-base bg-white text-primary" />
-        </div>
-      </div>
-      <div class="basis-1/2 flex flex-col justify-center">
-        <Image
-          class="min-w-full"
-          widths={[400, 768, 1024, 2040]}
-          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-          loading="eager"
-          width={640}
-          height={437}
-          src="~/assets/images/control_room.png"
-          alt="Person in a control room"
-        />
-      </div>
-    </div>
+    <CallToAction />
   </SectionLayout>
 </Layout>

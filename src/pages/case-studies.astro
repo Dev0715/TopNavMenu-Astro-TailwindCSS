@@ -5,6 +5,8 @@ import SectionLayout from '~/layouts/SectionLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
 const metadata = {
   title: 'Case Studies',
   ignoreTitleTemplate: true,
@@ -245,32 +247,10 @@ const metadata = {
   </SectionLayout>
 
   <SectionLayout>
-    <div class="flex flex-col md:flex-row bg-secondary">
-      <div class="basis-1/2 flex flex-col p-8 md:p-12 gap-3 md:gap-6">
-        <div class="flex flex-col gap-3 md:gap-6">
-          <h2 class="">Your Trusted Partner Innovating the Energy Sector</h2>
-          <p class="text-lg">
-            Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
-            resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your business
-            forward.
-          </p>
-        </div>
-        <div>
-          <Button variant="primary" text="Learn More" class="mt-4 md:mb-0 text-base bg-white text-primary" />
-        </div>
-      </div>
-      <div class="basis-1/2 flex flex-col justify-center">
-        <Image
-          class="min-w-full"
-          widths={[400, 768, 1024, 2040]}
-          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-          loading="eager"
-          width={640}
-          height={437}
-          src="~/assets/images/control_room.png"
-          alt="Person in a control room"
-        />
-      </div>
-    </div>
+    <CallToAction
+      action={{
+        href: '#',
+      }}
+    />
   </SectionLayout>
 </Layout>
