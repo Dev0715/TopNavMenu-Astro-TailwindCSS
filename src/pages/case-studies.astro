@@ -1,13 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
+import SectionLayout from '~/layouts/SectionLayout.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'Case Studies',
@@ -16,182 +12,265 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    actions={[{ variant: 'primary', text: 'Learn More', href: '#features', icon: '' }]}
-    image={{ src: '~/assets/images/control_room.png', alt: 'Person in a control room' }}
+  <SectionLayout
+    classes={{
+      background: 'bg-white',
+      container: 'py-0 md:py-0 px-0 md:px-0',
+    }}
   >
-    <Fragment slot="title"> Streamline HR, Scheduling, and Resource Coordination with Markular</Fragment>
-
-    <Fragment slot="subtitle">
-      Say goodbye to fragmented systems, multiple spreadsheets, and manual reporting. With Markular, you get an
-      intuitive system that streamlines your processes while minimizing errors. Managing your resources has never been
-      easier! Empower your business with Markular’s comprehensive solution for seamless HR and operations management.
-    </Fragment>
-  </Hero>
-
-  <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
-    image={{ src: '~/assets/images/rig.png', alt: 'Person crossing a rig bridge' }}
-  >
-    <Fragment slot="tagline">
-      <div>
-        <Icon name="marktopright" class="text-[5rem] text-primary" />
-      </div></Fragment
-    >
-    <Fragment slot="title"> <div>Transform Your Workforce Planning and Management</div></Fragment>
-
-    <Fragment slot="subtitle">
-      <div>
-        Struggling with fragmented systems and manual reporting? Markular streamlines HR and operations, unifying
-        employee management, shift planning, and time tracking. Simplify your business processes with our intuitive
-        platform, designed for medium to large enterprises.
+    <div class="flex flex-col">
+      <div class="basis-1/2 w-screen">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={480}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
       </div>
-    </Fragment>
-  </Hero2>
-
-  <Features2
-    classes={{
-      container: 'text-white bg-gradient-to-br from-myellow-900 via-myellow-950 to-myellow-950',
-    }}
-    title="Team Efficiency and Productivy"
-    subtitle="Optimize your business with a platform designed to streamline team management and boost productivity."
-    tagline="Maximize"
-    items={[
-      {
-        title: 'Efficient Resource Allocation',
-        description: 'Optimize resource allocation with precision.',
-        icon: 'markright',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-      {
-        title: 'Time Tracking and HR Tools',
-        description: 'Simplify performance management with powerful HR tools.',
-        icon: 'markup',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-      {
-        title: 'Competency Management',
-        description: 'Ensure certificates are up to date with comprehensive overview.',
-        icon: 'marktopright',
-        callToAction: { variant: 'link', text: 'Learn More', href: '#features', icon: 'tabler:chevron-right' },
-        classes: {
-          panel: 'bg-myellow-950',
-        },
-      },
-    ]}
-  />
-
-  <Hero2
-    isReversed={true}
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
-    image={{ src: '~/assets/images/office-hang.png', alt: '2 people hanging out in the office' }}
-    classes={{
-      container: 'bg-white',
-    }}
-  >
-    <Fragment slot="tagline">
-      <div>
-        <Icon name="markperson" class="text-[5rem] text-primary" />
-      </div></Fragment
-    >
-    <Fragment slot="title"> <div>Move Your Workforce into the Digital Future with Markular</div></Fragment>
-
-    <Fragment slot="subtitle">
-      <div>
-        Digitalizing your planning and operational processes requires transforming how your team works. Markular helps
-        you create a fully collaborative, cloud-based workspace that seamlessly converts your plans into action,
-        ensuring perfect execution.
-      </div>
-    </Fragment>
-  </Hero2>
-
-  <Hero2
-    actions={[{ variant: 'secondary', text: 'Learn More', href: '#features', icon: '', class: "font-['Fira Mono']" }]}
-    image={{ src: '~/assets/images/meeting-room.png', alt: 'people in a meeting room' }}
-    classes={{
-      container: 'bg-white',
-    }}
-  >
-    <Fragment slot="tagline"> <div>Innovative</div></Fragment>
-    <Fragment slot="title"> <div>Experience the Power of Markular's Cutting-Edge Solutions</div></Fragment>
-
-    <Fragment slot="subtitle">
-      <div>
-        Markular's operational management suite is transforming operations in the oil and gas sector. Our platform
-        integrates seamlessly with your existing systems, delivering measurable improvements across your entire
-        organization.
-
-        <h2 class="font-semibold text-4xl/[2.7rem] md:text-5xl/[3.6rem] mt-6 md:mt-8">
-          Increase operational efficiency by 20%
-        </h2>
-        <p class="mt-2">
-          Companies using integrated management solutions such as Markular, report up to 20% improvement in operational
-          efficiency.
-        </p>
-      </div>
-    </Fragment>
-  </Hero2>
-
-  <Testimonials
-    title="Weatherford"
-    testimonials={[
-      {
-        name: 'Geir Ståle',
-        job: 'CEO, Weatherford',
-        title: 'Revolutionizing HR',
-        testimonial:
-          'Markular has been a game-changer for us. Their platform has helped us streamline our HR processes and optimize team composition. We are proud to partner with Markular and look forward to continued success.',
-      },
-    ]}
-    classes={{
-      container: 'bg-white text-center',
-    }}
-  />
-
-  <section class="bg-accent py-16 relative md:-mt-[76px] not-prose">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-      <div class="md:flex">
-        <div class="basis-1/2 bg-secondary py-8 text-left px-8 mx-auto">
-          <h1 class="text-[2.5rem]/[3rem] md:text-6xl font-semibold mb-4 font-heading dark:text-gray-200">
-            Discover the Power of Markular
-          </h1>
-
-          <div class="max-w-3xl mx-auto lg:max-w-none">
-            <p class="text-xl text-muted mb-6 dark:text-slate-300">
-              Streamline your team composition and boost productivity with Markular's cutting-edge software solutions.
+      <div class="basis-1/2 px-6 md:px-16 py-16 md:py-20">
+        <div class="flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
+          <div class="basis-1/2"><h1>Enhancing Efficiency and Reducing Costs in Offshore Operations</h1></div>
+          <div class="basis-1/2 flex flex-col md:gap-6">
+            <p>
+              In the offshore services industry, managing a large workforce and coordinating equipment can be
+              challenging. Markular offers comprehensive solutions that streamline operations, improve accuracy, and
+              reduce costs. We introduce how oilfield service companies can benefit from Markular:
             </p>
 
-            <div class="max-w-xs sm:max-w-md flex flex-nowrap flex-row items-start gap-[1.5rem]">
-              <div class="flex my-auto">
-                <Button class="w-full text-base bg-white">Learn More</Button>
-              </div>
+            <div>
+              <Button variant="secondary" text="Learn More" class="mt-4 md:mb-0 text-base" />
             </div>
-          </div>
-        </div>
-        <div class="basis-1/2">
-          <div class="relative m-auto max-w-5xl">
-            <Image
-              class="mx-auto w-full"
-              widths={[400, 768, 1024, 2040]}
-              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-              loading="eager"
-              width={600}
-              height={600}
-              src="~/assets/images/tennis_balls.png"
-              alt="people in a meeting room"
-            />
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      background: 'bg-white',
+    }}
+  >
+    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+      <div class="basis-1/2 w-full xl:max-w-[75rem] flex justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+      <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
+        <div class="flex flex-col gap-4 md:gap-8">
+          <div>
+            <h2 class="mb-6">Overcoming Operational Challenges in Maritime and Oilfield Services</h2>
+            <p class="text-lg">
+              Oilfield service companies often face significant challenges in managing personnel, tracking time, and
+              coordinating equipment rentals. Effective management is crucial for maintaining productivity and reducing
+              operational costs.
+            </p>
+          </div>
+          <div class="flex gap-6">
+            <div class="basis-1/2 flex flex-col gap-4">
+              <h6>Maritime Sector</h6>
+              <p class="text-base">
+                The maritime sector is known for complex logistics and coordination of personnel. Robust systems are
+                needed for personnel management, time tracking, and equipment rental, addressing challenges like
+                disjointed systems, manual reporting, and data duplication.
+              </p>
+            </div>
+            <div class="basis-1/2 flex flex-col gap-4">
+              <h6>Oil and Gas Companies</h6>
+              <p class="text-base">
+                Oil and gas companies face unique challenges due to their operational scale, including managing a large,
+                distributed workforce and coordinating specialized equipment. Precise scheduling and resource allocation
+                are critical to maintaining safety standards and operational efficiency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout>
+    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+      <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
+        <div class="flex flex-col gap-4 md:gap-8">
+          <div>
+            <p class="font-bold text-base mb-4">Solutions</p>
+            <h2 class="mb-6">Tailored Solutions for the Maritime and Oilfield Sectors</h2>
+            <p class="text-lg">
+              Markular offers a comprehensive suite of modules designed to streamline operations, enhance efficiency,
+              and reduce costs in both the maritime and oilfield services sectors.
+            </p>
+          </div>
+          <div class="flex gap-6">
+            <div class="basis-1/2 flex flex-col gap-4">
+              <h6>Optimize Resource Allocation</h6>
+              <p class="text-base">
+                Markular enhances resource allocation by providing real-time visibility into personnel and equipment
+                availability, ensuring optimal deployment for projects. This leads to increased efficiency, reduced
+                downtime, and significant cost savings.
+              </p>
+            </div>
+            <div class="basis-1/2 flex flex-col gap-4">
+              <h6>Exceed Expectation</h6>
+              <p class="text-base">
+                With Markular you can deliver exceptional operational efficiency and reliability. Its comprehensive and
+                integrated platform ensures seamless management.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <Button variant="secondary" text="Learn More" class="mt-4 md:mb-0 text-base" />
+        </div>
+      </div>
+      <div class="basis-1/2 flex flex-col justify-center">
+        <Image
+          class="min-w-full h-[40rem]"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      background: 'bg-white',
+    }}
+  >
+    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+      <div class="basis-1/2 flex justify-center h-[40rem]">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={1024}
+          height={640}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+
+      <div class="basis-1/2 flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
+        <div class="flex flex-col gap-6">
+          <h3>Trusted by Leading Oilfield Service Companies</h3>
+          <p class="text-lg">
+            Markular is trusted by top oilfield service companies for its ability to streamline complex operations and
+            enhance efficiency. Renowned for its reliability and comprehensive features, Markular helps these companies
+            achieve their operational goals and maintain high standards of performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      background: 'bg-white',
+    }}
+  >
+    <div class="relative max-w-sm md:max-w-4xl mx-auto px-6 md:px-4 py-6">
+      <div class="bg-accent text-left p-6 md:p-16">
+        <div class="flex items-center justify-evenly mb-9">
+          <Image
+            class=""
+            width={120}
+            height={50}
+            widths={[400, 768]}
+            layout="fixed"
+            src="~/assets/images/weatherford.png"
+            alt="Weatherford logo"
+          />
+        </div>
+        <h3 class="text-xl md:text-2xl text-center">
+          With Markular, you join the ranks of leading oilfield service companies<span class="hidden md:inline-block">
+            like Weatherford and Archer</span
+          >. Sign up today and gain a competitive edge for tomorrow!
+        </h3>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout
+    classes={{
+      background: 'bg-white',
+    }}
+  >
+    <div class="flex flex-col gap-6 md:gap-20">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+        <div class="basis-1/2 flex flex-col md:gap-8">
+          <h3 class="basis-1/2">Empowering Excellence while Increasing Efficiency</h3>
+        </div>
+        <div class="basis-1/2 flex flex-col gap-6 md:gap-8">
+          <div class="basis-1/2 flex text-lg flex-col gap-4">
+            Markular greatly increase operational efficiency while providing coordinators and operational personnel the
+            overview they need to excel in the field.
+          </div>
+          <div class="basis-1/2 flex gap-6">
+            <div class="basis-1/2 flex flex-col gap-4">
+              <Icon name="marktopright" class="text-[3rem] text-primary" />
+              <h6>84%</h6>
+              <p class="text-base">
+                increase in team productivity through optimized resource allocation and management,
+              </p>
+            </div>
+            <div class="basis-1/2 flex flex-col gap-4">
+              <Icon name="marktopright" class="text-[3rem] text-primary" />
+              <h6>72%</h6>
+              <p class="text-base">decrease in HR tasks through our comprehensive management tools.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayout>
+
+  <SectionLayout>
+    <div class="flex flex-col md:flex-row bg-secondary">
+      <div class="basis-1/2 flex flex-col p-8 md:p-12 gap-3 md:gap-6">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <h2 class="">Your Trusted Partner Innovating the Energy Sector</h2>
+          <p class="text-lg">
+            Our goal is to be a trusted partner in your company's success, providing the tools you need to manage your
+            resources effectively in the dynamic energy landscape. With Markular, you can focus on driving your business
+            forward.
+          </p>
+        </div>
+        <div>
+          <Button variant="primary" text="Learn More" class="mt-4 md:mb-0 text-base bg-white text-primary" />
+        </div>
+      </div>
+      <div class="basis-1/2 flex flex-col justify-center">
+        <Image
+          class="min-w-full"
+          widths={[400, 768, 1024, 2040]}
+          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+          loading="eager"
+          width={640}
+          height={437}
+          src="~/assets/images/control_room.png"
+          alt="Person in a control room"
+        />
+      </div>
+    </div>
+  </SectionLayout>
 </Layout>

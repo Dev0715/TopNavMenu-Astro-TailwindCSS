@@ -118,7 +118,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         }
       </ul>
 
-      <Button variant="primary" text="Contact Us" class="md:hidden mx-5 mt-6 text-base w-auto" />
+      <Button variant="primary" text={actions[0]?.text} class="md:hidden mx-5 mt-6 text-base w-auto" />
     </nav>
     <!-- Contact Us -->
     <div class="hidden md:flex md:justify-self-end">

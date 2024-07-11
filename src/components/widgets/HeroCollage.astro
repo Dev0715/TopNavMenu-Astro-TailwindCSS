@@ -29,7 +29,7 @@ const secondColumn = Array.isArray(images) && images.filter((_, index) => index 
 <SectionLayout
   classes={{
     background: 'bg-gradient-to-br from-myellow-300 via-myellow-100 to-myellow-100',
-    container: twMerge(containerClass, 'py-0 md:py-0'),
+    container: twMerge(containerClass, 'md:py-0'),
   }}
 >
   <div class={twMerge('flex flex-col md:flex-row gap-12 md:gap-20', isReversed ? 'md:flex-row-reverse' : '')}>

@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'gradient-br': 'gradient-br 5s ease infinite',
+        'gradient-br': 'gradient-br 12s ease infinite',
       },
       keyframes: {
         'gradient-br': {

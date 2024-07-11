@@ -139,7 +139,7 @@ export const headerData = {
     // },
   ],
   // actions: [{ text: 'Demo', href: getPermalink('/contact'), target: '_blank' }],
-  actions: [{ text: 'Contact Us', href: getPermalink('/contact'), variant: 'primary' }],
+  actions: [{ text: 'Book Demo', href: getPermalink('/contact'), variant: 'primary' }],
 };
 
 export const footerData = {
