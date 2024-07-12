@@ -8,7 +8,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
-// import compress from 'astro-compress';
+import compress from 'astro-compress';
 import { astroImageTools } from 'astro-imagetools';
 
 import astrowind from './vendor/integration';
@@ -58,18 +58,18 @@ export default defineConfig({
       })
     ),
 
-    // compress({
-    //   CSS: true,
-    //   HTML: {
-    //     'html-minifier-terser': {
-    //       removeAttributeQuotes: false,
-    //     },
-    //   },
-    //   Image: false,
-    //   JavaScript: true,
-    //   SVG: false,
-    //   Logger: 1,
-    // }),
+    compress({
+      CSS: true,
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false,
+        },
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+      Logger: 1,
+    }),
 
     astrowind({
       config: './src/config.yaml',
