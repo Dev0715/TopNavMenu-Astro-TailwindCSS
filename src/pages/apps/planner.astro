@@ -16,7 +16,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <SectionLayoutWithBackground
-    src="src/assets/images/guy_pointing_at_wrist_watch.jpg"
+    src="/src/assets/images/guy_pointing_at_wrist_watch.jpg"
     preload="jpg"
     blur={5}
     brightness={0.4}
@@ -27,14 +27,20 @@ const metadata = {
     <div class="flex flex-col md:flex-row gap-12 md:gap-20">
       <div class="basis-1/2 flex flex-col justify-center">
         <div class="flex flex-col gap-3 md:gap-6">
-          <h1 class="text-secondary">Personnel Management Tailored for Oilfield Service Companies</h1>
+          <h1 class="text-secondary">Tailored Personnel Planner for Optimal Oilfield Service Operations</h1>
           <div class="">
             <p class="text-lg">
-              With Markular’s Planner module, you can optimize your staffing, manage complex rotation schemes, and
-              ensure the right expertise is always on the right assignment.
+              Optimize staffing, manage complex rotations, and ensure the right expertise for every assignment with
+              Markular.
             </p>
           </div>
-          <div class="flex mt-10 md:mt-4 md:mb-0">
+          <div class="flex gap-4 mt-10 md:mt-4 md:mb-0">
+            <Button
+              variant="primary"
+              text="Book Demo"
+              href="#simplified-planning"
+              class="text-base bg-white text-primary"
+            />
             <Button variant="primary" text="Learn More" href="#" class="text-base" />
           </div>
         </div>
@@ -42,11 +48,14 @@ const metadata = {
     </div>
   </SectionLayoutWithBackground>
 
-  <SectionLayout classes={{ background: 'bg-gradient-to-b from-myellow-100 via-white to-white' }}>
+  <SectionLayout
+    classes={{ background: 'bg-gradient-to-b from-myellow-100 via-white to-white' }}
+    id="simplified-planning"
+  >
     <div class="flex flex-col gap-12 md:gap-20">
       <div class="md:w-[48rem]">
         <p class="font-bold text-base mb-4">Simplified Planning for Offshore Rotations</p>
-        <h2 class="mb-6">Optimize Your Staffing, Manage Complex Rotation Schemes</h2>
+        <h2 class="mb-6">Optimize Your Staffing and Manage Complex Rotation Schemes</h2>
         <p class="text-lg">
           Manage complex rotation schemes and shift plans with ease, ensuring operational efficiency and compliance.
         </p>
@@ -57,8 +66,8 @@ const metadata = {
             <Icon name="marktopright" class="text-[3rem] text-primary" />
             <h4>Competence-Based Staffing</h4>
             <p class="text-base">
-              Ensure the right personnel are assigned to the right tasks based on their skills and availability. This
-              feature allows you to create detailed job plans that optimize your workforce efficiency.
+              Optimize workforce efficiency by assigning tasks based on skills and availability, and creating detailed
+              job plans.
             </p>
           </div>
 
@@ -66,8 +75,7 @@ const metadata = {
             <Icon name="marktopright" class="text-[3rem] text-primary" />
             <h4>Comprehensive Real-Time Overview</h4>
             <p class="text-base">
-              Monitor staff allocations and job statuses in real-time. Make on-the-fly adjustments to avoid conflicts
-              and ensure smooth operations, improving overall productivity and reducing downtime
+              Monitor staff allocations and job statuses in real-time. Avoid conflicting schedules and reduce downtime.
             </p>
           </div>
 
@@ -75,8 +83,7 @@ const metadata = {
             <Icon name="marktopright" class="text-[3rem] text-primary" />
             <h4>Management with Ease and Efficiency</h4>
             <p class="text-base">
-              Simplify complex rotation schemes with our automated tools. Reduce manual effort and minimize errors,
-              ensuring seamless personnel management.
+              Simplify complex rotation schemes with automation tools. Reduce manual effort and minimize errors.
             </p>
           </div>
         </div>
@@ -94,11 +101,12 @@ const metadata = {
   >
     <div class="flex flex-col md:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col md:gap-8">
-        <h3 class="basis-1/2">Schedule offshore rotation with Markular's planner module</h3>
+        <h3 class="basis-1/2">Effortlessly Optimize Your Offshore Rotations with Markular’s Planner Module</h3>
       </div>
       <div class="basis-1/2 flex flex-col gap-6 md:gap-8">
         <div class="basis-1/2 flex text-lg">
-          Enhance your productivity and efficiency with our Planner module tailored for oilfield service companies.
+          Boost productivity and efficiency with our Planner module, specifically designed for oilfield service
+          companies.
         </div>
         <div class="basis-1/2 flex gap-6">
           <div class="basis-1/2 flex flex-col gap-4">
@@ -122,7 +130,7 @@ const metadata = {
     <div class="flex flex-col lg:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
         <div class="flex flex-col gap-6">
-          <h3>Streamline your resource selection process</h3>
+          <h3>Streamline Your Resource Selection Process for Optimal Efficiency</h3>
           <p>
             Quickly identify and assign the best-suited personnel for each task, improving team performance and project
             outcomes.
@@ -149,12 +157,12 @@ const metadata = {
     <div class="flex flex-col gap-6 md:gap-20">
       <div class="flex flex-col md:flex-row gap-6 md:gap-20">
         <div class="basis-1/2 flex flex-col md:gap-8">
-          <h3 class="basis-1/2">Quickly access your schedule overview and find available personnel for the job</h3>
+          <h3 class="basis-1/2">Quickly Access Your Schedule Overview and Find Available Job Personnel</h3>
         </div>
         <div class="basis-1/2 flex flex-col gap-6 md:gap-8 text-lg">
-          Markular’s Planner module enables you to quickly locate available personnel with the right qualifications,
-          ensuring you can respond to staffing needs swiftly and efficiently. With real-time data and comprehensive
-          personnel profiles, you can minimize downtime and enhance operational productivity.
+          Markular’s Planner module allows you to swiftly find qualified personnel, ensuring efficient responses to
+          staffing needs. Featuring real-time data and detailed personnel profiles, this module helps minimize downtime
+          and boost operational productivity.
         </div>
       </div>
 
@@ -185,27 +193,27 @@ const metadata = {
             <div>
               <p class="font-bold text-base mb-4">Comprehensive Reports, Travel Management, and Payroll Solutions</p>
               <h2 class="mb-6">
-                Gain insights, streamline travel, and manage payroll efficiently with Markular’s integrated tools.
+                Gain Insights, Streamline Travel, and Efficiently Manage Payroll with Markular’s Integrated Tools
               </h2>
               <p class="text-lg">
-                Access a wide range of reports and analytics to monitor job performance, personnel utilization, and
-                project progress. Our detailed reporting tools provide real-time data, helping you make informed
-                decisions and optimize operations.
+                Access comprehensive reports and analytics to monitor job performance, personnel utilization, and
+                project progress. Our reporting tools offer real-time data, enabling informed decision-making and
+                optimized operations.
               </p>
             </div>
             <div class="flex gap-6">
               <div class="basis-1/2 flex flex-col gap-4">
                 <h6>Streamline Travel Management</h6>
                 <p class="text-base">
-                  Manage all aspects of travel for offshore personnel. Our travel management feature ensures that all
-                  travel-related tasks are handled efficiently and within budget.
+                  Efficiently manage all aspects of offshore personnel travel with our travel management feature,
+                  ensuring tasks are handled within budget.
                 </p>
               </div>
               <div class="basis-1/2 flex flex-col gap-4">
                 <h6>Efficient Payroll Management</h6>
                 <p class="text-base">
-                  Automate payroll processing with accurate and timely payments. Cost tracking integrated with
-                  timesheets for accuracy and minimum administrative workload.
+                  Automate payroll processing for accurate and timely payments. Integrate cost tracking with timesheets
+                  to ensure accuracy and minimize administrative workload.
                 </p>
               </div>
             </div>

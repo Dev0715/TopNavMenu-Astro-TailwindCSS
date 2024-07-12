@@ -1,6 +1,8 @@
 ---
 import { twMerge } from 'tailwind-merge';
-import { BackgroundImage } from 'astro-imagetools/components';
+import { getImage } from 'astro:assets';
+
+const images = import.meta.glob('~/assets/images/*');
 
 export interface Props {
   classes?: {
@@ -13,28 +15,31 @@ export interface Props {
   preload?: 'jpg' | 'webp' | 'jpeg' | 'png';
 }
 
-const { classes = {}, blur, src, preload, brightness } = Astro.props;
+const { classes = {}, blur, src, brightness } = Astro.props;
 
 const { container: containerClass = '' } = classes;
+
+const image = images[src]() as unknown as string;
+
+const optimizedBackground = await getImage({ src: image, format: 'jpeg', loading: 'eager' });
+
+const filter = `${blur ? 'blur(' + blur + 'px) ' : ''}${brightness ? 'brightness(' + brightness * 100 + '%)' : ''}`;
+
+const backgroundImageUrl = `url('${optimizedBackground.src}')`;
+// const preloadImage = `<link rel="preload" as="image" href="${optimizedBackground.src}" type="image/${preload || 'jpg'}">`;
 ---
 
-<BackgroundImage
-  src={src}
-  backgroundSize="cover"
-  tag="section"
-  format={['webp', 'jpg', 'jpeg']}
-  blur={blur ?? false}
-  preload={preload ?? 'jpg'}
-  brightness={brightness ?? false}
-  attributes={{
-    link: {
-      fetchpriority: 'high',
-    },
-  }}
->
-  <div class={twMerge('max-w-[1440px] mx-auto px-6 py-16 pb-16 md:px-16 md:py-28', containerClass)}>
+<section class={twMerge('relative')}>
+  <div
+    class={twMerge('absolute inset-0 bg-cover bg-center')}
+    style={`
+      background-image: ${backgroundImageUrl};
+      ${filter ? `filter: blur(${blur}px) brightness(${brightness})` : ''};
+    `}
+  >
+  </div>
+  <div class={twMerge('relative max-w-[1440px] mx-auto px-6 py-16 pb-16 md:px-16 md:py-28', containerClass)}>
     <div class="pt-0 pointer-events-none"></div>
     <slot />
   </div>
-</BackgroundImage>
-<!-- </section> -->
+</section>

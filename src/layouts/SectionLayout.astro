@@ -2,18 +2,19 @@
 import { twMerge } from 'tailwind-merge';
 
 export interface Props {
+  id?: string;
   classes?: {
     container?: string;
     background?: string;
   };
 }
 
-const { classes = {} } = Astro.props;
+const { classes = {}, id } = Astro.props;
 
 const { container: containerClass = '', background = '' } = classes;
 ---
 
-<section class={twMerge('not-prose', background)}>
+<section class={twMerge('not-prose', background)} {...id ? { id } : {}}>
   <div class={twMerge('max-w-[1440px] mx-auto px-6 py-16 pb-16 md:px-16 md:py-28', containerClass)}>
     <div class="pt-0 pointer-events-none"></div>
     <slot />
