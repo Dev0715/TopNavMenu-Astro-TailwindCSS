@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import SectionLayout from '~/layouts/SectionLayout.astro';
-import SectionLayoutWithBackground from '~/layouts/SectionLayoutWithBackground.astro';
+// import SectionLayoutWithBackground from '~/layouts/SectionLayoutWithBackground.astro';
 
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
@@ -15,7 +15,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <SectionLayoutWithBackground
+  <!-- <SectionLayoutWithBackground
     src="src/assets/images/2_women_discussing.jpg"
     preload="jpg"
     blur={1.5}
@@ -41,7 +41,7 @@ const metadata = {
         </div>
       </div>
     </div>
-  </SectionLayoutWithBackground>
+  </SectionLayoutWithBackground> -->
 
   <SectionLayout classes={{ background: 'bg-gradient-to-b from-myellow-100 via-white to-white' }}>
     <div class="flex flex-col gap-12 md:gap-20">
