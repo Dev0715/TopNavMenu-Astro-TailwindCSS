@@ -3,8 +3,24 @@ import {
   // getBlogPermalink, getAsset
 } from './utils/permalinks';
 
-const CASE_STUDIES = 'Case Studies';
-const ABOUT_US = 'About Us';
+const CASE_STUDIES = {
+  text: 'Case Studies',
+  href: getPermalink('/case-studies'),
+};
+const ABOUT_US = {
+  text: 'About Us',
+  href: getPermalink('/about'),
+};
+
+const CONTACT_US = {
+  text: 'Contact Us',
+  href: getPermalink('/contact'),
+};
+
+// const INTEGRATIONS = {
+//   text: 'Integrations',
+//   href: getPermalink('/integrations'),
+// };
 
 const LINKS = [
   {
@@ -35,18 +51,9 @@ export const headerData = {
       text: 'Solutions',
       links: LINKS,
     },
-    {
-      text: 'Integrations',
-      href: getPermalink('/integrations'),
-    },
-    {
-      text: CASE_STUDIES,
-      href: getPermalink('/case-studies'),
-    },
-    {
-      text: ABOUT_US,
-      href: getPermalink('/about'),
-    },
+    // INTEGRATIONS,
+    CASE_STUDIES,
+    ABOUT_US,
   ],
   actions: [{ text: 'Book Demo', href: getPermalink('/contact'), variant: 'primary' }],
 };
@@ -60,9 +67,10 @@ export const footerData = {
     {
       title: '',
       links: [
-        { text: 'Contact Us', href: getPermalink('/contact') },
-        { text: ABOUT_US, href: getPermalink('/about') },
-        { text: CASE_STUDIES, href: getPermalink('/case-studies') },
+        CONTACT_US,
+        ABOUT_US,
+        CASE_STUDIES,
+        // INTEGRATIONS
       ],
     },
   ],

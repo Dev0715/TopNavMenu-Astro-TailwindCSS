@@ -8,11 +8,12 @@ export interface Props {
     background?: string;
   };
   blur?: number | boolean;
+  brightness?: number;
   src: string;
   preload?: 'jpg' | 'webp' | 'jpeg' | 'png';
 }
 
-const { classes = {}, blur, src, preload } = Astro.props;
+const { classes = {}, blur, src, preload, brightness } = Astro.props;
 
 const { container: containerClass = '' } = classes;
 ---
@@ -25,6 +26,7 @@ const { container: containerClass = '' } = classes;
   format={['webp', 'jpg']}
   blur={blur ?? false}
   preload={preload ?? 'jpg'}
+  brightness={brightness ?? false}
   attributes={{
     link: {
       fetchpriority: 'high',

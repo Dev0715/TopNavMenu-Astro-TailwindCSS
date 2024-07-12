@@ -1,12 +1,12 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import SectionLayout from '~/layouts/SectionLayout.astro';
+import SectionLayoutWithBackground from '~/layouts/SectionLayoutWithBackground.astro';
 
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
-import HeroCollage from '~/components/widgets/HeroCollage.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -15,55 +15,33 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <HeroCollage
-    actions={[{ variant: 'primary', text: 'Learn More', href: '#' }]}
-    images={[
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 500,
-        width: 600,
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 600,
-        width: 600,
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 500,
-        width: 600,
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 500,
-        width: 600,
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 300,
-        width: 600,
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: 'AstroWind Hero Image',
-        height: 200,
-        width: 600,
-      },
-    ]}
+  <SectionLayoutWithBackground
+    src="src/assets/images/2_women_discussing.jpg"
+    preload="jpg"
+    blur={1.5}
+    brightness={0.6}
+    classes={{
+      container: 'text-white',
+    }}
   >
-    <Fragment slot="title">Unlock the Power of Efficient Time Management</Fragment>
-
-    <Fragment slot="subtitle">
-      Our portal offers a wide range of features tailored to meet the diverse needs of your organization. From time
-      tracking to leave management, explore how each feature can enhance your operations and prepare your business for
-      growth.
-    </Fragment>
-  </HeroCollage>
+    <div class="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div class="basis-1/2 flex flex-col justify-center">
+        <div class="flex flex-col gap-3 md:gap-6">
+          <h1 class="text-secondary">Unlock the Power of Efficient Time Management</h1>
+          <div class="">
+            <p class="text-lg">
+              Our portal offers a wide range of features tailored to meet the diverse needs of your organization. From
+              time tracking to leave management, explore how each feature can enhance your operations and prepare your
+              business for growth.
+            </p>
+          </div>
+          <div class="flex mt-10 md:mt-4 md:mb-0">
+            <Button variant="primary" text="Learn More" href="#" class="text-base" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayoutWithBackground>
 
   <SectionLayout classes={{ background: 'bg-gradient-to-b from-myellow-100 via-white to-white' }}>
     <div class="flex flex-col gap-12 md:gap-20">
@@ -115,7 +93,7 @@ const metadata = {
       background: 'bg-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col md:gap-8">
         <h3 class="basis-1/2">Designed to Evolve with Your Business</h3>
       </div>
@@ -146,7 +124,7 @@ const metadata = {
       background: 'bg-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col md:flex-row md:items-center gap-12 md:gap-20">
         <div class="flex flex-col gap-6">
           <h3>Efficient Leave Management</h3>
@@ -204,7 +182,7 @@ const metadata = {
       background: 'bg-white',
     }}
   >
-    <div class="flex flex-col md:flex-row gap-6 md:gap-20">
+    <div class="flex flex-col lg:flex-row gap-6 md:gap-20">
       <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
         <div class="flex-1 flex flex-col justify-center gap-3 md:gap-6">
           <div class="flex flex-col gap-4 md:gap-8">
