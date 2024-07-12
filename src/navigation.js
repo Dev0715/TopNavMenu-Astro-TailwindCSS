@@ -55,7 +55,7 @@ export const headerData = {
     CASE_STUDIES,
     ABOUT_US,
   ],
-  actions: [{ text: 'Book Demo', href: getPermalink('/contact'), variant: 'primary' }],
+  actions: [{ text: 'Book Demo', href: getPermalink('/contact#contact-form'), variant: 'primary' }],
 };
 
 export const footerData = {
