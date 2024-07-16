@@ -17,15 +17,18 @@ const metadata = {
 <Layout metadata={metadata}>
   <SectionLayout
     classes={{
-      background: 'bg-gradient-to-hero from-myellow-300 via-myellow-100 to-myellow-100 animate-gradient-br',
+      background: 'bg-gradient-to-hero from-myellow-300 via-myellow-200 animate-gradient-br',
     }}
   >
     <div class="flex flex-col items-center gap-12 md:gap-20">
       <div class="md:w-[48rem] flex flex-col gap-2 md:gap-6 items-start md:items-center">
         <div class="flex flex-col gap-4 md:gap-6 text-start md:text-center">
-          <h1>Streamline Personnel Coordination, Scheduling and HR with Markular</h1>
+          <h1>Crew Management Solution.<br /> Simplified.</h1>
 
-          <p class="text-lg">Say goodbye to fragmented systems, multiple spreadsheets, and manual reporting.</p>
+          <p class="text-lg">
+            Meet Markular, the next generation of crew management. Say goodbye to many systems and multiple
+            spreadsheets.
+          </p>
         </div>
         <div>
           <Button variant="primary" text="Book Demo" href="/contact#contact-form" class="mt-4 md:mb-0 text-base" />
@@ -58,18 +61,28 @@ const metadata = {
             <div class="flex flex-col gap-5 md:gap-6">
               <h2>Save Time Managing Your Workforce</h2>
               <p class="text-lg">
-                Streamline workforce scheduling and shift planning with Markular — an intuitive platform made for HR
-                Managers and Offshore Coordinators. Get the overview and tools you need to streamline processes today!
+                Markular provides you one connected experience for personnel coordination, HR management, time tracking
+                and learning management. Achieve the seamless coordination your business needs to thrive.
               </p>
+              <!-- <p class="text-lg">
+                You need to attract and retain top talent, ensure seamless shift transitions, handle unexpected
+                absences, and keep your team motivated—all while maintaining operational efficiency.
+              </p> -->
+
+              <!-- <p class="text-lg">
+                Countless spreadsheets, endless emails, and manual adjustments won’t help you achieve the seamless
+                coordination your business needs to thrive.
+              </p> -->
+              <!-- <p class="text-lg font-semibold">Shouldn’t your scheduling platform make your job simpler?</p> -->
             </div>
           </div>
           <div>
-            <Button variant="secondary" text="Learn More" href="/apps/planner" class="mt-4 md:mb-0 text-base" />
+            <Button variant="secondary" text="Learn More" href="/solutions/planner" class="mt-4 md:mb-0 text-base" />
           </div>
         </div>
       </div>
 
-      <div class="basis-1/2 flex justify-center h-[40rem]">
+      <div class="basis-1/2 flex flex-col justify-center h-[40rem]">
         <Image
           class="min-w-full"
           widths={[400, 768, 1024, 2040]}
@@ -83,6 +96,70 @@ const metadata = {
       </div>
     </div>
   </SectionLayout>
+  <SectionLayoutWithBackground
+    src="/src/assets/images/oil_rig_sunset.jpg"
+    preload="jpg"
+    classes={{
+      container: 'text-white',
+    }}
+  >
+    <div class="flex flex-col gap-12">
+      <div class="text-center md:w-[48rem] self-center">
+        <p class="font-bold text-base mb-3 md:mb-4">Maximize</p>
+        <h2 class="mb-5 md:mb-6 text-white">Team Efficiency and Productivy</h2>
+        <p class="text-base">
+          Optimize your business with a platform designed to streamline team management and boost productivity.
+        </p>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="markright" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Efficient Resource Allocation</h3>
+              <p class="text-base">Optimize resource allocation with pinpoint precision.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="/solutions/planner" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="markup" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Time Tracking and HR Tools</h3>
+              <p class="text-base">Streamline performance management using powerful HR tools.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="/solutions/people" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
+          <div class="flex flex-col gap-5">
+            <div>
+              <Icon name="marktopright" class="text-[3rem] text-secondary" />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-white">Competency Management</h3>
+              <p class="text-base">Ensure certificates are updated by providing a comprehensive overview.</p>
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <Button variant="link" text="Learn More" href="/solutions/skills" class="text-base" />
+            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionLayoutWithBackground>
 
   <SectionLayout
     classes={{
@@ -124,71 +201,6 @@ const metadata = {
       </div>
     </div>
   </SectionLayout>
-
-  <SectionLayoutWithBackground
-    src="/src/assets/images/oil_rig_sunset.jpg"
-    preload="jpg"
-    classes={{
-      container: 'text-white',
-    }}
-  >
-    <div class="flex flex-col gap-12">
-      <div class="text-center md:w-[48rem] self-center">
-        <p class="font-bold text-base mb-3 md:mb-4">Maximize</p>
-        <h2 class="mb-5 md:mb-6 text-white">Team Efficiency and Productivy</h2>
-        <p class="text-base">
-          Optimize your business with a platform designed to streamline team management and boost productivity.
-        </p>
-      </div>
-      <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
-          <div class="flex flex-col gap-5">
-            <div>
-              <Icon name="markright" class="text-[3rem] text-secondary" />
-            </div>
-            <div class="flex flex-col gap-3">
-              <h3 class="text-white">Efficient Resource Allocation</h3>
-              <p class="text-base">Optimize resource allocation with pinpoint precision.</p>
-            </div>
-          </div>
-          <div class="flex gap-2 items-center">
-            <Button variant="link" text="Learn More" href="/apps/planner" class="text-base" />
-            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
-          </div>
-        </div>
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
-          <div class="flex flex-col gap-5">
-            <div>
-              <Icon name="markup" class="text-[3rem] text-secondary" />
-            </div>
-            <div class="flex flex-col gap-3">
-              <h3 class="text-white">Time Tracking and HR Tools</h3>
-              <p class="text-base">Streamline performance management using powerful HR tools.</p>
-            </div>
-          </div>
-          <div class="flex gap-2 items-center">
-            <Button variant="link" text="Learn More" href="/apps/people" class="text-base" />
-            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
-          </div>
-        </div>
-        <div class="flex flex-col gap-5 p-6 bg-myellow-950/75 backdrop-blur-[5px]">
-          <div class="flex flex-col gap-5">
-            <div>
-              <Icon name="marktopright" class="text-[3rem] text-secondary" />
-            </div>
-            <div class="flex flex-col gap-3">
-              <h3 class="text-white">Competency Management</h3>
-              <p class="text-base">Ensure certificates are updated by providing a comprehensive overview.</p>
-            </div>
-          </div>
-          <div class="flex gap-2 items-center">
-            <Button variant="link" text="Learn More" href="/apps/skills" class="text-base" />
-            <Icon name="tabler:chevron-right" class="text-2xl text-secondary" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </SectionLayoutWithBackground>
 
   <SectionLayout
     classes={{

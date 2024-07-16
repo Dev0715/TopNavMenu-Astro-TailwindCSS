@@ -25,23 +25,23 @@ const CONTACT_US = {
 const LINKS = [
   {
     text: 'HR Manager',
-    href: getPermalink('/apps/people'),
+    href: getPermalink('/solutions/people'),
   },
   {
     text: 'Personnel Planner',
-    href: getPermalink('/apps/planner'),
+    href: getPermalink('/solutions/planner'),
   },
   {
     text: 'Time Tracker',
-    href: getPermalink('/apps/time-tracker'),
+    href: getPermalink('/solutions/time-tracker'),
   },
   {
     text: 'Competency Manager',
-    href: getPermalink('/apps/skills'),
+    href: getPermalink('/solutions/skills'),
   },
   {
     text: 'Logistics & Equipment Rental',
-    href: getPermalink('/apps/tools'),
+    href: getPermalink('/solutions/tools'),
   },
 ];
 

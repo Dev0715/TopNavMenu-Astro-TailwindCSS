@@ -9,37 +9,54 @@ import { Icon } from 'astro-icon/components';
 const metadata = {
   title: 'Contact',
 };
+
+const errors = {
+  firstname: '',
+  lastname: '',
+  phone: '',
+  email: '',
+  message: '',
+};
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const firstname = data.get('firstname');
+    const lastname = data.get('lastname');
+    const phone = data.get('phone');
+    const email = data.get('email');
+    const message = data.get('message');
+    // Do something with the data
+
+    if (typeof firstname !== 'string' || firstname.length < 2) {
+      errors.firstname += '';
+    }
+
+    if (typeof lastname !== 'string' || lastname.length < 2) {
+      errors.lastname += '';
+    }
+
+    if (typeof phone !== 'string' || phone.length < 8) {
+      errors.phone += '';
+    }
+
+    if (typeof email !== 'string' || email.length < 5) {
+      errors.email += '';
+    }
+
+    if (typeof message !== 'string' || message.length < 10) {
+      errors.message += '';
+    }
+
+    console.log(firstname, lastname, phone, email, message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <Layout metadata={metadata}>
-  <SectionLayout
-    classes={{
-      background: 'bg-gradient-to-hero from-myellow-100 to-white animate-gradient-br',
-      container: 'md:px-0 md:py-0 max-w-full',
-    }}
-  >
-    <div class="flex flex-col gap-2 md:gap-0">
-      <Image
-        class="min-w-full md:h-[64rem]"
-        widths={[400, 768, 1024, 2040]}
-        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-        loading="eager"
-        width={1024}
-        height={640}
-        src="~/assets/images/lysefjorden_aerial_shot.jpg"
-        alt="Aerial shot of Lysefjorden, Norway"
-      />
-      <div class="flex flex-col md:flex-row md:self-center md:px-16 md:py-20 gap-6 md:gap-20 max-w-[1440px]">
-        <div class="basis-1/2">
-          <h1>Get in touch with us for more information.</h1>
-        </div>
-        <div class="basis-1/2 flex flex-col gap-6">
-          <p>We're here to help. Contact us today!</p>
-        </div>
-      </div>
-    </div>
-  </SectionLayout>
-
   <SectionLayout
     classes={{
       background: 'bg-white',
@@ -68,7 +85,7 @@ const metadata = {
           </p>
         </div>
       </div>
-      <div class="basis-1/2 flex flex-col gap-3 md:gap-6">
+      <form method="POST" class="basis-1/2 flex flex-col gap-3 md:gap-6">
         <div class="w-full flex flex-col md:flex-row gap-6">
           <div class="basis-1/2 flex flex-col gap-2">
             <label for="firstname" class="text-base"> First Name </label>
@@ -113,7 +130,7 @@ const metadata = {
         <div>
           <Button type="submit" variant="primary" text="Submit form" class="text-base" />
         </div>
-      </div>
+      </form>
     </div>
   </SectionLayout>
 

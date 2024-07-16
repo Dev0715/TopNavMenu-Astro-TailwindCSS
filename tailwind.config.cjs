@@ -32,6 +32,7 @@ module.exports = {
         muted: 'var(--aw-color-text-muted)',
         myellow: {
           100: '#FCFFC7',
+          200: '#F3FF88',
           300: '#E9FF48',
           500: '#BCDD05',
           600: '#93B100',
