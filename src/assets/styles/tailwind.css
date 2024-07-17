@@ -87,18 +87,36 @@
 } */
 
 #header.expanded nav {
-  position: fixed;
+  /* position: fixed; */
   top: 70px;
   left: 0;
   right: 0;
   bottom: 70px !important;
-  padding: 0 5px;
+  /* padding: 0 5px; */
 }
 
 .dropdown:focus .dropdown-menu,
 .dropdown:focus-within .dropdown-menu,
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.dropdown-menu {
+  color: white;
+}
+
+.dropdown-menu:hover {
+  color: black;
+}
+
+.dropdown-menu:hover li:hover svg {
+  transform: translate(4px, 0);
+  color: black;
+}
+
+.dropdown-menu-mb:hover li:hover svg {
+  transform: translate(4px, 0);
+  color: black;
 }
 
 [astro-icon].icon-light > * {

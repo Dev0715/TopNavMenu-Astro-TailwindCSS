@@ -44,24 +44,51 @@ import { UI } from 'astrowind:config';
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    attachEvent('#header nav', 'click', function () {
-      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
-      document.body.classList.remove('overflow-hidden');
-      document.getElementById('header')?.classList.remove('h-screen');
-      document.getElementById('header')?.classList.remove('expanded');
-      document.getElementById('header')?.classList.remove('bg-page');
-      document.querySelector('#header nav')?.classList.add('hidden');
-      document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
-    });
+    let dataContent = '';
+    let hoverButton = false;
+    let hoverUl = false;
+    let dataContentMb = '';
+
+    const setDisplayUl = function (value) {
+      const matches = document.querySelectorAll('ul.dropdown-menu');
+      matches.forEach((_elem) => {
+        if (_elem.dataset.content === dataContent) {
+          _elem.style.display = value;
+        }
+      });
+    };
+
+    const setDisplayUlMb = function () {
+      const matches = document.querySelectorAll('ul.dropdown-menu-mb');
+      matches.forEach((_elem) => {
+        if (_elem.dataset.content === dataContentMb) {
+          _elem.style.display = 'block';
+        } else {
+          _elem.style.display = 'none';
+        }
+      });
+    };
+
+    // attachEvent('#header nav', 'click', function () {
+    //   document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+    //   document.body.classList.remove('overflow-hidden');
+    //   document.getElementById('header')?.classList.remove('h-screen');
+    //   document.getElementById('header')?.classList.remove('expanded');
+    //   document.getElementById('header')?.classList.remove('bg-page');
+    //   document.querySelector('#header nav')?.classList.add('hidden');
+    //   // document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
+    //   document.querySelector('#contactus')?.classList.add('hidden');
+    // });
 
     attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
       elem.classList.toggle('expanded');
-      document.body.classList.toggle('overflow-hidden');
+      // document.body.classList.toggle('overflow-hidden');
       document.getElementById('header')?.classList.toggle('h-screen');
       document.getElementById('header')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('bg-page');
       document.querySelector('#header nav')?.classList.toggle('hidden');
-      document.querySelector('#header > div > div:last-child')?.classList.toggle('hidden');
+      // document.querySelector('#header > div > div:last-child')?.classList.toggle('hidden');
+      document.querySelector('#contactus')?.classList.toggle('hidden');
     });
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
@@ -105,15 +132,66 @@ import { UI } from 'astrowind:config';
       newlink.click();
     });
 
+    attachEvent('li.dropdown', 'mouseover', function (_, elem) {
+      dataContent = elem.dataset.content;
+      hoverButton = true;
+      setDisplayUl('block');
+    });
+
+    attachEvent('li.dropdown', 'click', function (_, elem) {
+      const content = elem.dataset.content;
+      if (content === dataContentMb) {
+        dataContentMb = '';
+        elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
+      } else {
+        dataContentMb = content;
+        elem.children[0].children[0].children[0].style.transform = 'rotate(180deg)';
+      }
+
+      setDisplayUlMb();
+    });
+
+    attachEvent('li.dropdown', 'mouseleave', function (_, elem) {
+      if (elem.dataset.content === dataContent) {
+        hoverButton = false;
+        setTimeout(() => {
+          const matches = document.querySelectorAll('ul.dropdown-menu');
+          matches.forEach((_elem) => {
+            if (_elem.dataset.content === dataContent) {
+              if (window.getComputedStyle(_elem).getPropertyValue('color') !== 'rgb(0, 0, 0)') {
+                setDisplayUl('none');
+              }
+            }
+          });
+        }, 100);
+      }
+    });
+
+    attachEvent('ul.dropdown-menu', 'mouseover', function (_, elem) {
+      if (elem.dataset.content === dataContent && hoverButton === true) {
+        hoverUl = true;
+        setDisplayUl('block');
+      }
+    });
+
+    attachEvent('ul.dropdown-menu', 'mouseleave', function (_, elem) {
+      if (elem.dataset.content === dataContent) {
+        hoverUl = false;
+        if (hoverButton === false) {
+          setDisplayUl('none');
+        }
+      }
+    });
+
     const screenSize = window.matchMedia('(max-width: 767px)');
-    screenSize.addEventListener('change', function () {
+    screenSize.addEventListener('change', function (value) {
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
       document.getElementById('header')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('bg-page');
-      document.querySelector('#header nav')?.classList.add('hidden');
-      document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
+      document.querySelector('#header nav')?.classList.toggle('hidden');
+      // document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
     });
 
     function applyHeaderStylesOnScroll() {
@@ -130,6 +208,14 @@ import { UI } from 'astrowind:config';
 
     attachEvent([document], 'scroll', function () {
       lastKnownScrollPosition = window.scrollY;
+
+      if (lastKnownScrollPosition > 16) {
+        document.getElementById('header').style.top = 0;
+        document.getElementById('header').style.background = 'white';
+      } else {
+        document.getElementById('header').style.top = '16px';
+        document.getElementById('header').style.background = 'transparent';
+      }
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
