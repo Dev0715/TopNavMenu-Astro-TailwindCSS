@@ -86,7 +86,7 @@ import { UI } from 'astrowind:config';
       document.getElementById('header')?.classList.toggle('h-screen');
       document.getElementById('header')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('bg-page');
-      document.querySelector('#header nav')?.classList.toggle('hidden');
+      // document.querySelector('#header nav')?.classList.toggle('hidden');
       // document.querySelector('#header > div > div:last-child')?.classList.toggle('hidden');
       document.querySelector('#contactus')?.classList.toggle('hidden');
     });
@@ -139,6 +139,7 @@ import { UI } from 'astrowind:config';
     });
 
     attachEvent('li.dropdown', 'click', function (_, elem) {
+      if (window.innerWidth > 767) return;
       const content = elem.dataset.content;
       if (content === dataContentMb) {
         dataContentMb = '';
@@ -185,12 +186,20 @@ import { UI } from 'astrowind:config';
 
     const screenSize = window.matchMedia('(max-width: 767px)');
     screenSize.addEventListener('change', function (value) {
+      if (window.innerWidth > 767) {
+        dataContentMb = '';
+        setDisplayUlMb();
+        const matches = document.querySelectorAll('li.dropdown');
+        matches.forEach((_elem) => {
+          _elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
+        });
+      }
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
       document.getElementById('header')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('bg-page');
-      document.querySelector('#header nav')?.classList.toggle('hidden');
+      // document.querySelector('#header nav')?.classList.toggle('hidden');
       // document.querySelector('#header > div > div:last-child')?.classList.add('hidden');
     });
 
@@ -234,7 +243,7 @@ import { UI } from 'astrowind:config';
     document.body.classList.remove('overflow-hidden');
     document.getElementById('header')?.classList.remove('h-screen');
     document.getElementById('header')?.classList.remove('expanded');
-    document.querySelector('#header nav')?.classList.add('hidden');
+    // document.querySelector('#header nav')?.classList.add('hidden');
   };
 
   window.onload = onLoad;

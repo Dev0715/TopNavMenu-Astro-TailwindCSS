@@ -49,7 +49,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     'sticky top-4 z-40 md:flex h-16 md:h-[4.5rem] border-primary transition-[opacity] ease-in-out',
-    'ease-in duration-150 transition-all',
+    'ease-in duration-150 transition-all overflow-hidden md:overflow-visible',
   ]}
   {...id ? { id } : {}}
   data-aw-sticky-header,
@@ -90,7 +90,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <!-- Navigation Desktop & Mobile -->
         <nav
           class:list={[
-            'md:items-center md:w-auto hidden md:flex overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center md:col-span-4',
+            'md:items-center md:w-auto flex overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center md:col-span-4',
             'md:h-full px-4',
           ]}
           aria-label="Main navigation"
