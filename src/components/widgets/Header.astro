@@ -48,8 +48,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    'sticky top-4 z-40 md:flex h-16 md:h-[4.5rem] border-primary transition-[opacity] ease-in-out',
+    'sticky top-4 z-40 md:flex h-16 md:h-[4.5rem] border-black transition-[opacity] ease-in-out',
     'ease-in duration-150 transition-all overflow-hidden md:overflow-visible',
+    // 'border-b-[1px] border-black',
   ]}
   {...id ? { id } : {}}
   data-aw-sticky-header,
@@ -65,7 +66,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     <div class="relative bg-white h-full rounded-3xl">
       <div
         class:list={[
-          'z-50 relative w-full h-full md:px-4 rounded-3xl border-white md:border-gray border-[1px]',
+          'z-50 relative w-full h-full md:px-4 rounded-3xl border-white md:border-gray-300 md:border-[1px] overflow-hidden',
           {
             'md:flex md:justify-between': position !== 'center',
           },
@@ -75,7 +76,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         ]}
       >
         <div
-          class="flex justify-between items-center px-4 md:px-0 py-2 md:pt-0 rounded-3xl border-gray border-0 md:border-0"
+          class="flex justify-between items-center px-4 md:px-0 py-2 md:py-0 rounded-3xl border-gray border-[1px] md:border-0"
         >
           <a href={getHomePermalink()} class="text-black">
             <Logo />

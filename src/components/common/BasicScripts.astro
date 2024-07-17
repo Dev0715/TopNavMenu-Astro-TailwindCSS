@@ -221,9 +221,13 @@ import { UI } from 'astrowind:config';
       if (lastKnownScrollPosition > 16) {
         document.getElementById('header').style.top = 0;
         document.getElementById('header').style.background = 'white';
+        document.getElementById('header').children[0].children[0].children[0].style.borderColor = 'white';
+        document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = 'white';
       } else {
         document.getElementById('header').style.top = '16px';
         document.getElementById('header').style.background = 'transparent';
+        document.getElementById('header').children[0].children[0].children[0].style.borderColor = '#d1d5db';
+        document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = '#d1d5db';
       }
 
       if (!ticking) {
