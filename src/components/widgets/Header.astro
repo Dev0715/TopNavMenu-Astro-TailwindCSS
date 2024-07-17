@@ -80,12 +80,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           <a href={getHomePermalink()} class="text-black">
             <Logo />
           </a>
-          <!-- <div class="flex md:hidden"> -->
-          <!-- <Button variant="primary" text={actions[0]?.text} class="md:hidden mx-5 py-2 text-base w-auto" /> -->
-          <div class="md:hidden">
-            <ToggleMenu />
+          <div class="flex items-center md:hidden">
+            <Button variant="primary" text={actions[0]?.text} class="md:hidden mx-5 py-1 h-fit text-base w-auto" />
+            <div class="md:hidden">
+              <ToggleMenu />
+            </div>
           </div>
-          <!-- </div> -->
         </div>
         <!-- Navigation Desktop & Mobile -->
         <nav
