@@ -126,8 +126,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       </button>
                       <ul
                         class:list={[
-                          'dropdown-menu-mb md:hidden rounded hidden font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
-                          'w-full px-4 py-12 md:bg-white rounded-b-3xl overflow-hidden',
+                          'dropdown-menu-mb md:hidden rounded font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
+                          'w-full px-4 py-0 md:bg-white rounded-b-3xl overflow-hidden',
+                          'h-0 ease-in duration-150 transition-all',
                         ]}
                         data-content={text}
                       >
@@ -187,8 +188,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               <>
                 <ul
                   class:list={[
-                    'dropdown-menu md:backdrop-blur-md rounded hidden font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
+                    'dropdown-menu md:backdrop-blur-md rounded font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
                     'w-full px-4 py-12 md:bg-white rounded-b-3xl overflow-hidden',
+                    'hidden',
                   ]}
                   data-content={text}
                 >

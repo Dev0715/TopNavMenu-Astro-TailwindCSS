@@ -54,6 +54,13 @@ import { UI } from 'astrowind:config';
       matches.forEach((_elem) => {
         if (_elem.dataset.content === dataContent) {
           _elem.style.display = value;
+          if (value === 'block') {
+            // _elem.style.height = _elem.scrollHeight + 'px';
+            // _elem.style.padding = '48px 16px';
+          } else {
+            // _elem.style.height = '0';
+            // _elem.style.padding = '0 16px';
+          }
         }
       });
     };
@@ -62,9 +69,13 @@ import { UI } from 'astrowind:config';
       const matches = document.querySelectorAll('ul.dropdown-menu-mb');
       matches.forEach((_elem) => {
         if (_elem.dataset.content === dataContentMb) {
-          _elem.style.display = 'block';
+          // _elem.style.display = 'block';
+          _elem.style.height = _elem.scrollHeight + 96 + 'px';
+          _elem.style.padding = '48px 16px';
         } else {
-          _elem.style.display = 'none';
+          // _elem.style.display = 'none';
+          _elem.style.height = '0';
+          _elem.style.padding = '0 16px';
         }
       });
     };
