@@ -68,7 +68,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     <div
       class:list={[
         'relative w-full h-full',
-        'rounded-3xl rounded-b-none',
+        'rounded-b-none',
         'bg-transparent group-[.submenu]/header:bg-white group-[.expanded]/header:bg-white',
         'ease-in-out duration-300 transition-all',
       ]}
@@ -76,7 +76,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       <div
         class:list={[
           'w-full h-full md:px-4',
-          'rounded-3xl bg-white md:ring-[1px] md:ring-gray-300 md:pt-[1px] md:ring-inset group-[.fullwidth]/header:ring-0',
+          'bg-white md:ring-[1px] md:ring-gray-300 md:pt-[1px] md:ring-inset group-[.fullwidth]/header:ring-0',
           {
             'md:flex md:justify-between': position !== 'center',
           },
@@ -88,7 +88,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <div
           class:list={[
             'h-full flex justify-between items-center px-4 md:px-0 py-2 md:py-0',
-            'rounded-3xl md:border-none border-[1px] border-gray-300 md:border-white',
+            'md:border-none border-[1px] border-gray-300 md:border-white',
             'group-[.fullwidth]/header:border-white',
           ]}
         >
@@ -99,7 +99,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             <LogoMobile />
           </a>
           <div class="md:hidden flex items-center">
-            <Button variant="primary" text={actions[0]?.text} class="w-auto h-fit rounded-xl mx-5 py-1 text-base" />
+            <Button variant="primary" text={actions[0]?.text} class="w-auto h-fit mx-5 py-1 text-base" />
             <ToggleMenu />
           </div>
         </div>
@@ -109,12 +109,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           class:list={[
             'md:items-center md:w-auto flex overflow-y-auto overflow-x-hidden',
             'md:overflow-y-visible md:overflow-x-auto md:justify-self-center md:col-span-4',
-            'md:h-full bg-white px-4',
+            'md:h-full bg-white px-4 md:px-0',
             'ease-in-out duration-300 transition-all',
             'opacity-0 md:opacity-100 py-0 md:py-0',
             'pointer-events-none md:pointer-events-auto',
             'group-[.expanded]/header:pointer-events-auto group-[.expanded]/header:opacity-100 group-[.expanded]/header:py-6',
-            'rounded-b-3xl',
           ]}
           aria-label="Main navigation"
         >
@@ -152,7 +151,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                           'dropdown-menu group/dropdown-menu drop-shadow-xl', // dropdown-menu
                           'md:absolute left-0 top-full w-full flex flex-col md:flex-row gap-2 md:gap-16',
                           'font-medium max-md:text-sm md:bg-white',
-                          'w-full px-0 md:px-8 py-0 md:pt-20 md:pb-12 rounded-none md:rounded-b-3xl',
+                          'w-full px-0 md:px-8 py-0 md:pt-20 md:pb-12 rounded-none',
                           'md:opacity-0 ease-linear duration-300 transition-all',
                           'pointer-events-none group-[.submenu]/header:pointer-events-auto',
                           'md:group-hover/dropdown:opacity-100 md:group-hover/dropdown:pt-12',
@@ -198,7 +197,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                             </li>
                           ))}
                         </div>
-                        <div class="flex-1 order-1 md:order-2 min-h-36 bg-gray-500 border-2 border-gray-300 p-4 rounded-lg md:rounded-3xl">
+                        <div class="flex-1 order-1 md:order-2 min-h-36 bg-black p-4">
                           <p class="text-base text-white">Custom Image</p>
                         </div>
                       </ul>
@@ -225,7 +224,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             actions?.length ? (
               <span class="hidden md:flex">
                 {actions.map((btnProps) => (
-                  <Button {...btnProps} class="rounded-xl text-base px-5 py-2" />
+                  <Button {...btnProps} class="text-base px-5 py-2 max-h-12 min-w-28" />
                 ))}
               </span>
             ) : (
