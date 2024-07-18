@@ -135,7 +135,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   data-content={text}
                 >
                   {links?.length ? (
-                    <div class="w-full">
+                    <div class="w-full md:h-full">
                       <button
                         type="button"
                         class="hover:text-link w-full md:w-auto md:h-full flex items-center justify-between"
@@ -205,7 +205,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     </div>
                   ) : (
                     <a
-                      class:list={['hover:text-link flex items-center', { 'aw-link-active': href === currentPath }]}
+                      class:list={[
+                        'hover:text-link md:h-full flex items-center',
+                        { 'aw-link-active': href === currentPath },
+                      ]}
                       href={href}
                     >
                       {text}

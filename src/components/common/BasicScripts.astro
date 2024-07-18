@@ -130,6 +130,23 @@ import { UI } from 'astrowind:config';
         matches.forEach((_elem) => {
           _elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
         });
+
+        dataContent = '';
+        const _matches = document.querySelectorAll('.dropdown-menu');
+        _matches.forEach((_elem) => {
+          _elem.style.height = 'fit-content';
+          _elem.style.paddingTop = null;
+          _elem.classList.add('md:pt-20');
+          _elem.style.paddingBottom = '48px';
+        });
+      } else {
+        dataContent = '';
+        const matches = document.querySelectorAll('.dropdown-menu');
+        matches.forEach((_elem) => {
+          _elem.style.height = '0';
+          _elem.style.paddingTop = '0';
+          _elem.style.paddingBottom = '0';
+        });
       }
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('expanded');
