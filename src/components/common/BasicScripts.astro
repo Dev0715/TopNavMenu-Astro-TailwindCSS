@@ -44,42 +44,6 @@ import { UI } from 'astrowind:config';
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    let dataContent = '';
-    let hoverButton = false;
-    let hoverUl = false;
-    let dataContentMb = '';
-
-    const setDisplayUl = function (value) {
-      const matches = document.querySelectorAll('ul.dropdown-menu');
-      matches.forEach((_elem) => {
-        if (_elem.dataset.content === dataContent) {
-          _elem.style.display = value;
-          if (value === 'block') {
-            // _elem.style.height = _elem.scrollHeight + 'px';
-            // _elem.style.padding = '48px 16px';
-          } else {
-            // _elem.style.height = '0';
-            // _elem.style.padding = '0 16px';
-          }
-        }
-      });
-    };
-
-    const setDisplayUlMb = function () {
-      const matches = document.querySelectorAll('ul.dropdown-menu-mb');
-      matches.forEach((_elem) => {
-        if (_elem.dataset.content === dataContentMb) {
-          // _elem.style.display = 'block';
-          _elem.style.height = _elem.scrollHeight + 96 + 'px';
-          _elem.style.padding = '48px 16px';
-        } else {
-          // _elem.style.display = 'none';
-          _elem.style.height = '0';
-          _elem.style.padding = '0 16px';
-        }
-      });
-    };
-
     // attachEvent('#header nav', 'click', function () {
     //   document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
     //   document.body.classList.remove('overflow-hidden');
@@ -94,7 +58,7 @@ import { UI } from 'astrowind:config';
     attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
       elem.classList.toggle('expanded');
       // document.body.classList.toggle('overflow-hidden');
-      document.getElementById('header')?.classList.toggle('h-screen');
+      // document.getElementById('header')?.classList.toggle('h-screen');
       document.getElementById('header')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('bg-page');
       // document.querySelector('#header nav')?.classList.toggle('hidden');
@@ -144,54 +108,34 @@ import { UI } from 'astrowind:config';
     });
 
     attachEvent('li.dropdown', 'mouseover', function (_, elem) {
-      dataContent = elem.dataset.content;
-      hoverButton = true;
-      setDisplayUl('block');
-    });
-
-    attachEvent('li.dropdown', 'click', function (_, elem) {
-      if (window.innerWidth > 767) return;
-      const content = elem.dataset.content;
-      if (content === dataContentMb) {
-        dataContentMb = '';
-        elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
-      } else {
-        dataContentMb = content;
-        elem.children[0].children[0].children[0].style.transform = 'rotate(180deg)';
-      }
-
-      setDisplayUlMb();
+      document.getElementById('header')?.classList.add('submenu');
     });
 
     attachEvent('li.dropdown', 'mouseleave', function (_, elem) {
-      if (elem.dataset.content === dataContent) {
-        hoverButton = false;
-        setTimeout(() => {
-          const matches = document.querySelectorAll('ul.dropdown-menu');
-          matches.forEach((_elem) => {
-            if (_elem.dataset.content === dataContent) {
-              if (window.getComputedStyle(_elem).getPropertyValue('color') !== 'rgb(0, 0, 0)') {
-                setDisplayUl('none');
-              }
-            }
-          });
-        }, 100);
-      }
+      document.getElementById('header')?.classList.remove('submenu');
     });
 
-    attachEvent('ul.dropdown-menu', 'mouseover', function (_, elem) {
-      if (elem.dataset.content === dataContent && hoverButton === true) {
-        hoverUl = true;
-        setDisplayUl('block');
-      }
-    });
+    let dataContent = '';
 
-    attachEvent('ul.dropdown-menu', 'mouseleave', function (_, elem) {
-      if (elem.dataset.content === dataContent) {
-        hoverUl = false;
-        if (hoverButton === false) {
-          setDisplayUl('none');
-        }
+    attachEvent('li.dropdown', 'click', function (_, elem) {
+      if (window.innerWidth > 767) {
+        return; // Ignore on Desktop
+      }
+      const content = elem.dataset.content;
+      if (content === dataContent) {
+        dataContent = '';
+        elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
+
+        const _elem = elem.getElementsByClassName('dropdown-menu')[0];
+        _elem.style.height = '0';
+        _elem.style.paddingTop = '0';
+      } else {
+        dataContent = content;
+        elem.children[0].children[0].children[0].style.transform = 'rotate(180deg)';
+
+        const _elem = elem.getElementsByClassName('dropdown-menu')[0];
+        _elem.style.height = _elem.scrollHeight + 12 + 'px';
+        _elem.style.paddingTop = '12px';
       }
     });
 
@@ -199,7 +143,6 @@ import { UI } from 'astrowind:config';
     screenSize.addEventListener('change', function (value) {
       if (window.innerWidth > 767) {
         dataContentMb = '';
-        setDisplayUlMb();
         const matches = document.querySelectorAll('li.dropdown');
         matches.forEach((_elem) => {
           _elem.children[0].children[0].children[0].style.transform = 'rotate(0)';
@@ -229,16 +172,24 @@ import { UI } from 'astrowind:config';
     attachEvent([document], 'scroll', function () {
       lastKnownScrollPosition = window.scrollY;
 
-      if (lastKnownScrollPosition > 16) {
+      if (lastKnownScrollPosition > 32) {
         document.getElementById('header').style.top = 0;
         document.getElementById('header').style.background = 'white';
-        document.getElementById('header').children[0].children[0].children[0].style.borderColor = 'white';
-        document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = 'white';
+        document.getElementById('header').style.borderBottomWidth = '1px';
+
+        document.getElementById('header').classList.add('fullwidth');
+
+        // document.getElementById('header').children[0].children[0].children[0].style.borderColor = 'white';
+        // document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = 'white';
       } else {
-        document.getElementById('header').style.top = '16px';
+        document.getElementById('header').style.top = '32px';
         document.getElementById('header').style.background = 'transparent';
-        document.getElementById('header').children[0].children[0].children[0].style.borderColor = '#d1d5db';
-        document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = '#d1d5db';
+        document.getElementById('header').style.borderBottomWidth = '0';
+
+        document.getElementById('header').classList.remove('fullwidth');
+
+        // document.getElementById('header').children[0].children[0].children[0].style.borderColor = '#d1d5db';
+        // document.getElementById('header').children[0].children[0].children[0].children[0].style.borderColor = '#d1d5db';
       }
 
       if (!ticking) {

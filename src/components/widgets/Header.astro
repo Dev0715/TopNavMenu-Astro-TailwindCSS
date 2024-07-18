@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
+import LogoMobile from '~/components/LogoMobile.astro';
+import Item from '~/components/Item.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -48,25 +50,33 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    'sticky top-4 z-40 md:flex h-16 md:h-[4.5rem] border-black transition-[opacity] ease-in-out',
-    'ease-in duration-150 transition-all overflow-hidden md:overflow-visible',
-    // 'border-b-[1px] border-black',
+    'z-40 sticky top-8 h-16 md:h-[4.5rem] md:flex',
+    'ease-in duration-150 transition-all',
+    'group/header border-0 border-gray', // submenu fullwidth
   ]}
   {...id ? { id } : {}}
   data-aw-sticky-header,
 >
   <div
     class:list={[
-      'relative h-full mx-auto pl-5 pr-3 md:px-16',
+      'h-full mx-auto pl-5 pr-3 md:px-16',
       {
         'md:w-[1440px]': !isFullWidth,
       },
     ]}
   >
-    <div class="relative bg-white h-full rounded-3xl">
+    <div
+      class:list={[
+        'relative w-full h-full',
+        'rounded-3xl rounded-b-none',
+        'bg-transparent group-[.submenu]/header:bg-white group-[.expanded]/header:bg-white',
+        'ease-in duration-150 transition-all',
+      ]}
+    >
       <div
         class:list={[
-          'z-50 relative w-full h-full md:px-4 rounded-3xl border-white md:border-gray-300 md:border-[1px] overflow-hidden',
+          'w-full h-full md:px-4',
+          'rounded-3xl bg-white border-gray md:border-[1px] group-[.fullwidth]/header:border-white',
           {
             'md:flex md:justify-between': position !== 'center',
           },
@@ -76,37 +86,49 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         ]}
       >
         <div
-          class="flex justify-between items-center px-4 md:px-0 py-2 md:py-0 rounded-3xl border-gray border-[1px] md:border-0"
+          class:list={[
+            'h-full flex justify-between items-center px-4 md:px-0 py-2 md:py-0',
+            'rounded-3xl md:border-none border-[1px] border-gray md:border-white',
+            'group-[.fullwidth]/header:border-white',
+          ]}
         >
-          <a href={getHomePermalink()} class="text-black">
+          <a href={getHomePermalink()} class="text-black hidden md:block">
             <Logo />
           </a>
-          <div class="flex items-center md:hidden">
-            <Button variant="primary" text={actions[0]?.text} class="md:hidden mx-5 py-1 h-fit text-base w-auto" />
-            <div class="md:hidden">
-              <ToggleMenu />
-            </div>
+          <a href={getHomePermalink()} class="text-black md:hidden">
+            <LogoMobile />
+          </a>
+          <div class="md:hidden flex items-center">
+            <Button variant="primary" text={actions[0]?.text} class="w-auto h-fit rounded-xl mx-5 py-1 text-base" />
+            <ToggleMenu />
           </div>
         </div>
+
         <!-- Navigation Desktop & Mobile -->
         <nav
           class:list={[
-            'md:items-center md:w-auto flex overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center md:col-span-4',
-            'md:h-full px-4',
+            'md:items-center md:w-auto flex overflow-y-auto overflow-x-hidden',
+            'md:overflow-y-visible md:overflow-x-auto md:justify-self-center md:col-span-4',
+            'md:h-full bg-white px-4',
+            'ease-in duration-150 transition-all',
+            'opacity-0 md:opacity-100 py-16 md:py-0',
+            'pointer-events-none md:pointer-events-auto',
+            'group-[.expanded]/header:pointer-events-auto group-[.expanded]/header:opacity-100 group-[.expanded]/header:py-6',
+            'rounded-b-3xl',
           ]}
           aria-label="Main navigation"
         >
           <ul
             class:list={[
-              'flex flex-col md:flex-row md:self-center gap-6 md:px-5 text-black max-md:text-2xl',
-              'md:h-full w-full md:w-auto ease-in duration-150 transition-all pt-6 md:pt-0',
+              'flex flex-col md:flex-row md:self-center gap-6 md:px-5 text-black',
+              'md:h-full w-full md:w-auto ease-in duration-150 transition-all md:pt-0',
             ]}
           >
             {
               links.map(({ text, href, links }) => (
                 <li
                   class:list={[
-                    links?.length ? 'dropdown' : '',
+                    links?.length ? 'dropdown group/dropdown' : '', // dropdown
                     'md:h-full px-2 flex items-center border-b-[1px] md:border-b-2 border-gray md:border-white md:hover:border-yellow-700',
                     'ease-in duration-150 transition-all py-2 md:py-0',
                   ]}
@@ -118,38 +140,67 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                         type="button"
                         class="hover:text-link w-full md:w-auto md:h-full flex items-center justify-between"
                       >
-                        {text}{' '}
+                        {text}
                         <Icon
                           name="tabler:chevron-down"
                           class="w-6 h-6 ml-0.5 md:inline ease-in duration-150 transition-all"
                         />
                       </button>
+                      {/* SubMenu */}
                       <ul
                         class:list={[
-                          'dropdown-menu-mb md:hidden rounded font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
-                          'w-full px-4 py-0 md:bg-white rounded-b-3xl overflow-hidden',
-                          'h-0 ease-in duration-150 transition-all',
+                          'dropdown-menu group/dropdown-menu drop-shadow-xl', // dropdown-menu
+                          'md:absolute left-0 top-full w-full flex flex-col md:flex-row gap-2 md:gap-16',
+                          'font-medium max-md:text-sm md:bg-white',
+                          'w-full px-0 md:px-8 py-0 md:pt-20 md:pb-12 rounded-none md:rounded-b-3xl',
+                          'md:opacity-0 ease-in duration-150 transition-all',
+                          'pointer-events-none group-[.submenu]/header:pointer-events-auto',
+                          'md:group-hover/dropdown:opacity-100 md:group-hover/dropdown:pt-12',
+                          'md:group-focus/dropdown:opacity-100 md:group-focus/dropdown:pt-12',
+                          'md:group-focus-within/dropdown:opacity-100 md:group-focus-within/dropdown:pt-12',
+                          'h-0 md:h-fit overflow-y-hidden md:overflow-y-auto',
                         ]}
                         data-content={text}
                       >
-                        {links.map(({ text: text2, href: href2 }) => (
-                          <li class="w-full">
-                            <a
-                              class:list={[
-                                'first:rounded-t last:rounded-b hover:underline pl-2 py-2 block whitespace-no-wrap text-black',
-                                { 'aw-link-active': href2 === currentPath },
-                                'w-full flex justify-between',
-                              ]}
-                              href={href2}
-                            >
-                              {text2}
-                              <Icon
-                                name="tabler:chevron-right"
-                                class="w-4 h-4 ml-0.5 md:inline ease-in duration-150 transition-all text-gray-500"
-                              />
-                            </a>
-                          </li>
-                        ))}
+                        <div class="min-w-96 w-full md:w-1/3 order-2 md:order-1">
+                          {links.map(({ text: text2, href: href2 }) => (
+                            <li class="w-full group/menu-item">
+                              {/** menu-item */}
+                              <a
+                                class:list={[
+                                  'hover:underline py-2 md:py-3 pr-1 block whitespace-no-wrap text-black',
+                                  { 'aw-link-active': href2 === currentPath },
+                                  'w-full flex items-center justify-between',
+                                ]}
+                                href={href2}
+                              >
+                                <div class="flex items-center gap-4">
+                                  <div
+                                    class:list={[
+                                      'w-8 min-w-8 h-8 flex items-center justify-center',
+                                      'bg-black',
+                                      'ease-in duration-300 transition-all',
+                                      'group-hover/dropdown-menu:group-hover/menu-item:bg-yellow-500',
+                                    ]}
+                                  >
+                                    <Item />
+                                  </div>
+                                  {text2}
+                                </div>
+                                <Icon
+                                  name="tabler:chevron-right"
+                                  class:list={[
+                                    'w-4 h-4 ml-0.5 md:inline text-gray-500',
+                                    'ease-in duration-150 transition-all',
+                                  ]}
+                                />
+                              </a>
+                            </li>
+                          ))}
+                        </div>
+                        <div class="flex-1 order-1 md:order-2 min-h-36 bg-gray-500 border-2 border-gray p-4 rounded-lg md:rounded-3xl">
+                          <p class="text-base text-white">Custom Image</p>
+                        </div>
                       </ul>
                     </div>
                   ) : (
@@ -171,7 +222,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             actions?.length ? (
               <span class="hidden md:flex">
                 {actions.map((btnProps) => (
-                  <Button {...btnProps} class="text-base px-5 py-2" />
+                  <Button {...btnProps} class="rounded-xl text-base px-5 py-2" />
                 ))}
               </span>
             ) : (
@@ -179,44 +230,6 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             )
           }
         </div>
-      </div>
-
-      <div class="z-40 w-full absolute left-0 md:top-[3rem] hidden md:block">
-        {
-          links.map(({ text, href, links }) =>
-            links?.length ? (
-              <>
-                <ul
-                  class:list={[
-                    'dropdown-menu md:backdrop-blur-md rounded font-medium md:min-w-[200px] drop-shadow-xl max-md:text-lg',
-                    'w-full px-4 py-12 md:bg-white rounded-b-3xl overflow-hidden',
-                    'hidden',
-                  ]}
-                  data-content={text}
-                >
-                  {links.map(({ text: text2, href: href2 }) => (
-                    <li class="w-1/2">
-                      <a
-                        class:list={[
-                          'first:rounded-t last:rounded-b hover:underline pl-2 py-2 block whitespace-no-wrap text-black',
-                          { 'aw-link-active': href2 === currentPath },
-                          'w-full flex justify-between',
-                        ]}
-                        href={href2}
-                      >
-                        {text2}
-                        <Icon
-                          name="tabler:chevron-right"
-                          class="w-4 h-4 ml-0.5 md:inline ease-in duration-150 transition-all text-gray-500"
-                        />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null
-          )
-        }
       </div>
     </div>
   </div>
