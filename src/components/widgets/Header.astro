@@ -50,7 +50,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    'z-40 sticky top-8 h-16 md:h-[4.5rem] md:flex',
+    'z-40 sticky top-4 h-16 md:h-[4.5rem] md:flex',
     'ease-in duration-150 transition-all',
     'group/header border-gray-300 order-none', // submenu fullwidth expanded
   ]}
@@ -59,7 +59,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 >
   <div
     class:list={[
-      'h-full mx-auto pl-5 pr-3 md:px-16',
+      'h-full mx-auto px-4 md:px-16',
       {
         'md:w-[1440px]': !isFullWidth,
       },
